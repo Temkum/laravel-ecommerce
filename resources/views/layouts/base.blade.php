@@ -51,8 +51,6 @@
             </div>
             <div class="topbar-menu right-menu">
               <ul>
-                <li class="menu-item"><a title="Register or Login" href="login.html">Login</a></li>
-                <li class="menu-item"><a title="Register or Login" href="register.html">Register</a></li>
                 <li class="menu-item lang-menu menu-item-has-children parent">
                   <a title="English" href="#"><span class="img label-before"><img src="assets/images/lang-en.png"
                         alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
@@ -81,6 +79,56 @@
                     </li>
                   </ul>
                 </li>
+
+                @if (Route::has('login'))
+                  @auth
+                    @if (Auth::user()->user_type === 'ADMIN')
+                      {{-- display admin link --}}
+                      <li class="menu-item menu-item-has-children parent">
+                        <a title="My Account" href="#">My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down"
+                            aria-hidden="true"></i>
+                        </a>
+                        <ul class="submenu curency">
+                          <li class="menu-item">
+                            <a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                          </li>
+
+                          <li class="menu-item"><a href="{{ route('logout') }}"
+                              onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
+                          </li>
+
+                          <form action="{{ route('logout') }}" method="post" id="logout">
+                            @csrf
+                          </form>
+                        </ul>
+                      </li>
+                    @else
+                      {{-- normal user or customer --}}
+                      <li class=" menu-item menu-item-has-children parent">
+                        <a title="My Account" href="#">My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down"
+                            aria-hidden="true"></i>
+                        </a>
+                        <ul class="submenu curency">
+                          <li class="menu-item">
+                            <a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
+                          </li>
+
+                          <li class="menu-item"><a href="{{ route('logout') }}"
+                              onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
+                          </li>
+
+                          <form action="{{ route('logout') }}" method="post" id="logout">
+                            @csrf
+                          </form>
+                        </ul>
+                      </li>
+                    @endif
+                  @else
+                    <li class="menu-item"><a title="Register or Login" href="{{ route('login') }}">Login</a></li>
+                    <li class="menu-item"><a title="Register or Login" href="{{ route('register') }}">Register</a>
+                    </li>
+                  @endauth
+                @endif
               </ul>
             </div>
           </div>
