@@ -52,8 +52,9 @@
             <div class="topbar-menu right-menu">
               <ul>
                 <li class="menu-item lang-menu menu-item-has-children parent">
-                  <a title="English" href="#"><span class="img label-before"><img src="assets/images/lang-en.png"
-                        alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                  <a title="English" href="#"><span class="img label-before"><img
+                        src="{{ asset('assets/images/lang-en.png') }}" alt="lang-en"></span>English<i
+                      class="fa fa-angle-down" aria-hidden="true"></i></a>
                   <ul class="submenu lang">
                     <li class="menu-item"><a title="hungary" href="#"><span class="img label-before"><img
                             src="{{ asset('assets/images/lang-hun.png') }}" alt="lang-hun"></span>Hungary</a></li>
@@ -138,8 +139,8 @@
           <div class="mid-section main-info-area">
 
             <div class="wrap-logo-top left-section">
-              <a href="index.html" class="link-to-home"><img src="{{ asset('assets/images/tk-logo.png') }}"
-                  alt="mercado" width="50px" height="50px"></a>
+              <a href="/" class="link-to-home"><img src="{{ asset('assets/images/tk-logo.png') }}" alt="mercado"
+                  width="50px" height="50px"></a>
             </div>
 
             <div class="wrap-search center-section">
