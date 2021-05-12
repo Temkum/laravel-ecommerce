@@ -41,14 +41,15 @@
                       pattern="[0-9]*">
                     <a class="btn btn-increase" href="#"
                       wire:click.prevent="increaseQuantity('{{ $item->row_id }}')"></a>
-                    <a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantity('{{ $item->row_id }}')"></a>
+                    <a class="btn btn-reduce" href="#"
+                      wire:click.prevent="decreaseQuantity('{{ $item->row_id }}')"></a>
                   </div>
                 </div>
                 <div class="price-field sub-total">
                   <p class="price">${{ $item->subtotal }}</p>
                 </div>
                 <div class="delete">
-                  <a href="#" class="btn btn-delete" title="">
+                  <a href="#" class="btn btn-delete" title="" wire:click.prevent="destroy('{{ $item->row_id }}')">
                     <span>Delete from your cart</span>
                     <i class="fa fa-times-circle" aria-hidden="true"></i>
                   </a>
@@ -91,7 +92,7 @@
               aria-hidden="true"></i></a>
         </div>
         <div class="update-clear">
-          <a class="btn btn-clear" href="#">Clear Shopping Cart</a>
+          <a class="btn btn-clear" href="#" wire:click.prevent="destroyAll()">Clear Shopping Cart</a>
           <a class="btn btn-update" href="#">Update Shopping Cart</a>
         </div>
       </div>

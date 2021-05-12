@@ -79,7 +79,7 @@
                     <div class="wrap-price">
                       <span class="product-price">${{ $product->regular_price }}</span>
                     </div>
-                    <a href="{{ route('product.cart', ['slug' => $product->slug]) }}" class="btn add-to-cart"
+                    <a href="#" class="btn add-to-cart"
                       wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Add
                       To Cart
                     </a>
