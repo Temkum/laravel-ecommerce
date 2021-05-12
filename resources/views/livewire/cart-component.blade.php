@@ -37,10 +37,11 @@
                 </div>
                 <div class="quantity">
                   <div class="quantity-input">
-                    <input type="text" name="product-quatity" value="{{ $item->quantity }}" data-max="120"
+                    <input type="text" name="product-quatity" value="{{ $item->model->quantity }}" data-max="120"
                       pattern="[0-9]*">
-                    <a class="btn btn-increase" href="#"></a>
-                    <a class="btn btn-reduce" href="#"></a>
+                    <a class="btn btn-increase" href="#"
+                      wire:click.prevent="increaseQuantity('{{ $item->row_id }}')"></a>
+                    <a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantity('{{ $item->row_id }}')"></a>
                   </div>
                 </div>
                 <div class="price-field sub-total">
