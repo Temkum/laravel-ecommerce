@@ -14,7 +14,8 @@
 
         <div class="banner-shop">
           <a href="#" class="banner-link">
-            <figure><img src="{{ asset('asset') }}s/images/shop-banner.jpg" alt=""></figure>
+            <figure><img src="{{ asset('asset/images/shop-banner.jpg') }}" alt="">
+            </figure>
           </a>
         </div>
 
@@ -73,15 +74,20 @@
                   </div>
                   <div class="product-info">
                     <a href="{{ route('product.details', ['slug' => $product->slug]) }}"
-                      class="product-name"><span>{{ $product->name }}</span></a>
-                    <div class="wrap-price"><span class="product-price">${{ $product->regular_price }}</span></div>
-                    <a href="#" class="btn add-to-cart">Add To Cart</a>
+                      class="product-name"><span>{{ $product->name }}</span>
+                    </a>
+                    <div class="wrap-price">
+                      <span class="product-price">${{ $product->regular_price }}</span>
+                    </div>
+                    <a href="{{ route('product.cart', ['slug' => $product->slug]) }}" class="btn add-to-cart"
+                      wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Add
+                      To Cart
+                    </a>
                   </div>
                 </div>
               </li>
             @endforeach
           </ul>
-
         </div>
 
         <div class="wrap-pagination-info">
@@ -199,7 +205,7 @@
               <li class="list-item"><a class="filter-link " href="#">xl</a></li>
             </ul>
             <div class="widget-banner">
-              <figure><img src="{{ asset('assets/images/size-banner-widget.jpg"') }} width=" 270" height="331"
+              <figure><img src="{{ asset('assets/images/size-banner-widget.jpg') }}" width=" 270" height="331"
                   alt="">
               </figure>
             </div>
@@ -214,7 +220,7 @@
                 <div class="product product-widget-style">
                   <div class="thumbnnail">
                     <a href="detail.html" title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                      <figure><img src="{{ asset('assets/images') }}/products/digital_01.jpg" alt=""></figure>
+                      <figure><img src="{{ asset('assets/images/products/digital_01.jpg') }}" alt=""></figure>
                     </a>
                   </div>
                   <div class="product-info">
@@ -228,7 +234,7 @@
                 <div class="product product-widget-style">
                   <div class="thumbnnail">
                     <a href="detail.html" title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                      <figure><img src="{{ asset('assets/images') }}/products/digital_17.jpg" alt=""></figure>
+                      <figure><img src="{{ asset('assets/images/products/digital_17.jpg') }}" alt=""></figure>
                     </a>
                   </div>
                   <div class="product-info">
@@ -242,7 +248,7 @@
                 <div class="product product-widget-style">
                   <div class="thumbnnail">
                     <a href="detail.html" title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                      <figure><img src="{{ asset('assets/images') }}/products/digital_18.jpg" alt=""></figure>
+                      <figure><img src="{{ asset('assets/images/products/digital_18.jpg') }}" alt=""></figure>
                     </a>
                   </div>
                   <div class="product-info">
@@ -251,21 +257,6 @@
                   </div>
                 </div>
               </li>
-
-              <li class="product-item">
-                <div class="product product-widget-style">
-                  <div class="thumbnnail">
-                    <a href="detail.html" title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                      <figure><img src="{{ asset('assets/images') }}/products/digital_20.jpg" alt=""></figure>
-                    </a>
-                  </div>
-                  <div class="product-info">
-                    <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
-                    <div class="wrap-price"><span class="product-price">$168.00</span></div>
-                  </div>
-                </div>
-              </li>
-
             </ul>
           </div>
         </div><!-- brand widget-->
