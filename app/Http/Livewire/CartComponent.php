@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use Gloudemans\Shoppingcart\Cart;
+use Cart;
 
 class CartComponent extends Component
 {
