@@ -8402,3 +8402,13 @@ svg {
     margin-left: 10px;
     padding-bottom: 5px;
 }
+
+.no-products {
+    margin-top: 2rem;
+    border-left: 4px solid blue;
+    background-color: rgba(79, 76, 76, 0.083);
+    padding-left: 2rem;
+    line-height: 8rem;
+    font-size: 2rem;
+    border-radius: 10px;
+}

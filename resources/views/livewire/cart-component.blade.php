@@ -58,7 +58,7 @@
             @endforeach
           </ul>
         @else
-          <p>No item in cart</p>
+          <p class="no-products">No items in cart!</p>
         @endif
       </div>
 

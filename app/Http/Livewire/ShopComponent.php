@@ -44,6 +44,6 @@ class ShopComponent extends Component
         // categories
         $categories = Category::all();
 
-        return view('livewire.shop-component', ['products' => $products, 'categories'=> $categories])->layout('layouts.base');
+        return view('livewire.shop-component', ['products' => $products, 'categories' => $categories])->layout('layouts.base');
     }
 }
