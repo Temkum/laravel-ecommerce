@@ -10,10 +10,11 @@
 
     .panel-heading1 {
       text-transform: uppercase;
-      text-align: center;
+      /* text-align: center; */
       line-height: 50px;
-      font-weight: bold;
-      font-size: 2rem
+      font-weight: 300;
+      font-size: 2rem;
+      margin-left: 15px;
     }
 
   </style>
@@ -23,7 +24,12 @@
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading1">
-            All Categories
+            <div class="col-md-6">
+              All Categories
+            </div>
+            <div class="col-md-6">
+              <a href="{{ route('admin.add-category') }}" class="btn btn-primary">Add New Category</a>
+            </div>
           </div>
 
           <div class="panel-heading">
