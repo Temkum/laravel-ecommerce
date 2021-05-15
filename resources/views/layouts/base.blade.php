@@ -1545,7 +1545,7 @@
   <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
   <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
   <script src="{{ asset('assets/js/functions.js') }}"></script>
-  @livewireStyles
+  @livewireScripts
 </body>
 
 </html>

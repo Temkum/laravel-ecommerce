@@ -34,7 +34,7 @@ class AdminEditCategoryComponent extends Component
         $category->slug = $this->slug;
         $category->save();
 
-       session()->flash('message', 'Category updated successfully!');
+        session()->flash('message', 'Category updated successfully!');
     }
 
     public function render()

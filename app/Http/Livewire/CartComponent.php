@@ -3,38 +3,39 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+
 use Cart;
 
 class CartComponent extends Component
 {
-    public function increaseQuantity($row_id)
+    public function increaseQuantity($rowId)
     {
-        $product = Cart::get($row_id);
+        $product = Cart::get($rowId);
         $qty = $product->quantity + 1;
-        Cart::update($row_id, $qty);
+        Cart::update($rowId, $qty);
     }
 
-    public function decreaseQuantity($row_id)
+    public function decreaseQuantity($rowId)
     {
-        $product = Cart::get($row_id);
+        $product = Cart::get($rowId);
         $qty = $product->quantity - 1;
-        Cart::update($row_id, $qty);
+        Cart::update($rowId, $qty);
     }
 
-    public function destroy($row_id)
+    public function destroy($rowId)
     {
 
-        Cart::remove($row_id);
+        Cart::remove($rowId);
 
-        session()->flash('success_msg', 'Item removed successfully!');
+        session()->flash('success_msg', 'Item successfully removed!');
     }
 
-    public function destroyAll($row_id)
+    public function destroyAll()
     {
 
         Cart::destroy();
 
-        session()->flash('success_msg', 'Item removed successfully!');
+        session()->flash('success_msg', 'All cart items removed successfully!');
     }
 
     public function render()

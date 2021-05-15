@@ -17,6 +17,10 @@
       margin-left: 15px;
     }
 
+    .margin {
+      margin-left: 15px;
+    }
+
   </style>
 
   <div class="container" style="padding:30px 0;">
@@ -24,11 +28,13 @@
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <div class="col-md-6">
-              All Categories
-            </div>
-            <div class="col-md-6">
-              <a href="{{ route('admin.add-category') }}" class="btn btn-primary">Add New Category</a>
+            <div class="row">
+              <div class="col-md-6 text-uppercase text-lg">
+                All Categories
+              </div>
+              <div class="col-md-6">
+                <a href="{{ route('admin.add-category') }}" class="btn btn-primary">Add New Category</a>
+              </div>
             </div>
           </div>
 
@@ -55,7 +61,7 @@
                       <a href="{{ route('admin.edit-category', ['category_slug' => $category->slug]) }}"> <i
                           class="fa fa-edit fa-2x"></i></a>
                       <a href="#" wire:click.prevent="deleteCategory({{ $category->id }})"> <i
-                          class="fa fa-trash fa-2x text-danger"></i></a>
+                          class="fa fa-trash fa-2x text-danger margin"></i></a>
                     </td>
                   </tr>
                 @endforeach
