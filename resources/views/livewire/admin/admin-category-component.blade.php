@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="panel panel-default">
-          <div class="panel-heading1">
+          <div class="panel-heading">
             <div class="col-md-6">
               All Categories
             </div>
@@ -32,11 +32,14 @@
             </div>
           </div>
 
-          <div class="panel-heading">
+          <div class="panel-body">
+            @if (Session::has('message'))
+              <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
+            @endif
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>id</th>
+                  <th>Id</th>
                   <th>Category Name</th>
                   <th>Slug</th>
                   <th>Action</th>
@@ -51,6 +54,8 @@
                     <td>
                       <a href="{{ route('admin.edit-category', ['category_slug' => $category->slug]) }}"> <i
                           class="fa fa-edit fa-2x"></i></a>
+                      <a href="#" wire:click.prevent="deleteCategory({{ $category->id }})"> <i
+                          class="fa fa-trash fa-2x text-danger"></i></a>
                     </td>
                   </tr>
                 @endforeach
