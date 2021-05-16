@@ -34,6 +34,11 @@
           </div>
 
           <div class="panel-body">
+            @if (Session::has('message'))
+              <div class="alert alert-success" role="alert">
+                {{ Session::get('message') }}
+              </div>
+            @endif
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -60,7 +65,12 @@
                     <td>{{ $product->created_at }}</td>
                     <td>
                       <a href="{{ route('admin.edit-product', ['product_slug' => $product->slug]) }}"><i
-                          class="fa fa-edit fa-2x text-purple-100"></i></a>
+                          class="fa fa-edit fa-2x text-purple-100"></i>
+                      </a>
+                      <a href="{{ route('admin.edit-product', ['product_slug' => $product->slug]) }}"><i
+                          class="fa fa-trash fa-2x text-danger" style="margin-left: 1.8rem;"
+                          wire:click.prevent="deleteProduct({{ $product->id }})"></i>
+                      </a>
                     </td>
                   </tr>
                 @endforeach
