@@ -31,7 +31,7 @@ class AdminEditProductComponent extends Component
     public function mount($product_slug)
     {
         $product = Product::where('slug', $product_slug)->first();
-        
+
         $this->name = $product->name;
         $this->slug = $product->slug;
         $this->short_description = $product->short_description;
@@ -45,7 +45,7 @@ class AdminEditProductComponent extends Component
         $this->image = $product->image;
         $this->category_id = $product->category_id;
         $this->new_image = $product->new_image;
-        $this->product_id = $product->product_id;
+        $this->product_id = $product->id;
     }
 
     public function generateSlug()
