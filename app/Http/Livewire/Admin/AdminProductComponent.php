@@ -14,7 +14,7 @@ class AdminProductComponent extends Component
     {
         //fetch products from db table
         $products = Product::paginate(10);
-        
+
         return view('livewire.admin.admin-product-component', ['products' => $products])->layout('layouts.base');
     }
 }

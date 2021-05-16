@@ -58,6 +58,10 @@
                     <td>{{ $product->regular_price }}</td>
                     <td>{{ $product->category->name }}</td>
                     <td>{{ $product->created_at }}</td>
+                    <td>
+                      <a href="{{ route('admin.edit-product', ['product_slug' => $product->slug]) }}"><i
+                          class="fa fa-edit fa-2x text-purple-100"></i></a>
+                    </td>
                   </tr>
                 @endforeach
               </tbody>
