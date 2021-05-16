@@ -8,14 +8,29 @@
       display: block !important;
     }
 
+    .add-new {
+      float: right;
+    }
+
+    .text-lg {
+      font-size: 2.5rem;
+    }
+
   </style>
 
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="panel panel-default">
-          <div class="panel-heading">
-            All Products
+          <div class="panel-heading heading-1">
+            <div class="row">
+              <div class="col-md-6 text-uppercase text-lg">
+                All products
+              </div>
+              <div class="col-md-6 add-new">
+                <a href="{{ route('admin.add-product') }}" class="btn btn-primary pull-right">Add New Product</a>
+              </div>
+            </div>
           </div>
 
           <div class="panel-body">

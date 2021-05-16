@@ -28,7 +28,7 @@
             <div class="sort-item orderby ">
               <select name="orderby" class="use-chosen" wire:model="sorting">
                 <option value="default" selected="selected">Default sorting</option>
-                <option value="date">Sort by newness</option>
+                <option value="date">Sort by most recent</option>
                 <option value="price">Sort by price: low to high</option>
                 <option value="price-desc">Sort by price: high to low</option>
               </select>
