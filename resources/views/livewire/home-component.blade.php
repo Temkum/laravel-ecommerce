@@ -215,7 +215,7 @@
       </div>
     </div>
 
-    <!--Latest Products-->
+    <!-- LATEST PRODUCTS -->
     <div class="wrap-show-advance-info-box style-1">
       <h3 class="title-box">Latest Products</h3>
       <div class="wrap-top-banner">
@@ -231,6 +231,7 @@
               <div class="wrap-products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5"
                 data-loop="false" data-nav="true" data-dots="false"
                 data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"4"},"1200":{"items":"5"}}'>
+                {{-- latest product feature --}}
                 @foreach ($latest_products as $latest_product)
                   <div class="product product-style-2 equal-elem ">
                     <div class="product-thumnail">
@@ -245,7 +246,7 @@
                       <div class="wrap-price"><span
                           class="product-price">${{ $latest_product->regular_price }}</span></div>
                     </div>
-                  </div>
+                  </div> {{-- latest products item --}}
                 @endforeach
               </div>
             </div>
