@@ -7,6 +7,7 @@ use App\Models\HomeCategory;
 use App\Models\Product;
 use Livewire\Component;
 use App\Models\HomeSlider;
+use App\Models\Sale;
 
 class HomeComponent extends Component
 {
@@ -26,7 +27,9 @@ class HomeComponent extends Component
         // On sale carousel
         $onsale_products = Product::where('sale_price', '>', 0)->inRandomOrder()->get()->take(8);
 
+        // sale timer
+        $sale = Sale::find(1);
 
-        return view('livewire.home-component', ['sliders' => $sliders, 'latest_products' => $latest_products, 'categories' => $categories, 'no_of_products' => $num_of_products, 'onsale_products' => $onsale_products])->layout('layouts.base');
+        return view('livewire.home-component', ['sliders' => $sliders, 'latest_products' => $latest_products, 'categories' => $categories, 'no_of_products' => $num_of_products, 'onsale_products' => $onsale_products, 'sale' => $sale])->layout('layouts.base');
     }
 }

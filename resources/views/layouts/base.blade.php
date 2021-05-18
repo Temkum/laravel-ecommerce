@@ -20,9 +20,11 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.carousel.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/flexslider.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/chosen.min.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/select2.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
+
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 
   @livewireStyles
 </head>
@@ -102,11 +104,14 @@
                             <a title="Products" href="{{ route('admin.products') }}"> Products</a>
                           </li>
                           <li class="menu-item">
-                            <a title="Manage Home Slider" href="{{ route('admin.homeslider') }}">Manage Home Slider</a>
+                            <a title="Home Slider" href="{{ route('admin.homeslider') }}">Home Slider</a>
                           </li>
                           <li class="menu-item">
-                            <a title="Manage Home Categories" href="{{ route('admin.homecategories') }}">Manage Home
+                            <a title="Home Categories" href="{{ route('admin.homecategories') }}">Home
                               Categories</a>
+                          </li>
+                          <li class="menu-item">
+                            <a title="Sale Timer Setting" href="{{ route('admin.sale') }}">Sale Timer Setting</a>
                           </li>
                           <li class="menu-item"><a href="{{ route('logout') }}"
                               onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
@@ -1557,6 +1562,8 @@
   <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
   <script src="{{ asset('assets/js/functions.js') }}"></script>
   <script src="{{ asset('assets/js/select2.min.js') }}"></script>
+  <script src="{{ asset('assets/js/moment.min.js') }}"></script>
+  <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
   @livewireScripts
 
   @stack('scripts')
