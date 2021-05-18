@@ -23,6 +23,10 @@ class HomeComponent extends Component
         $categories = Category::whereIn('id', $dynamic_cats)->get();
         $num_of_products = $category->no_of_products;
 
-        return view('livewire.home-component', ['sliders' => $sliders, 'latest_products' => $latest_products, 'categories' => $categories, 'no_of_products' => $num_of_products])->layout('layouts.base');
+        // On sale carousel
+        $onsale_products = Product::where('sale_price', '>', 0)->inRandomOrder()->get()->take(8);
+
+
+        return view('livewire.home-component', ['sliders' => $sliders, 'latest_products' => $latest_products, 'categories' => $categories, 'no_of_products' => $num_of_products, 'onsale_products' => $onsale_products])->layout('layouts.base');
     }
 }

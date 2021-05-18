@@ -49,6 +49,8 @@ class AdminEditHomeSliderComponent extends Component
         $slider->save();
 
         session()->flash('message', 'Slide updated successfully!');
+
+        return redirect()->to('/admin/slider');
     }
 
     public function render()
