@@ -11,21 +11,19 @@
   </style>
 
   <div class="container">
-
     <div class="wrap-breadcrumb">
       <ul>
         <li class="item-link"><a href="#" class="link">home</a></li>
         <li class="item-link"><span>detail</span></li>
       </ul>
     </div>
-    <div class="row">
 
+    <div class="row">
       <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
         <div class="wrap-product-detail">
           <div class="detail-media">
             <div class="product-gallery">
               <ul class="slides">
-
                 <li data-thumb="{{ asset('assets/images/products') }}/{{ $product->image }}">
                   <img src="{{ asset('assets/images/products') }}/{{ $product->image }}"
                     alt="{{ $product->name }}" />
@@ -110,10 +108,9 @@
                   </tbody>
                 </table>
               </div>
+
               <div class="tab-content-item " id="review">
-
                 <div class="wrap-review-form">
-
                   <div id="comments">
                     <h2 class="woocommerce-Reviews-title">01 review for <span>Radiant-360 R6 Chainsaw Omnidirectional
                         [Orage]</span></h2>
@@ -266,9 +263,9 @@
             </ul>
           </div>
         </div>
-
       </div>
       <!--end sitebar-->
+
 
       <div class="single-advance-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="wrap-show-advance-info-box style-1 box-in-site">
@@ -311,5 +308,4 @@
 
   </div>
   <!--end container-->
-
 </main>
