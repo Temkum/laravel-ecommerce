@@ -23,7 +23,7 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/select2.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
-
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/nouislider.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 
   @livewireStyles
@@ -1564,6 +1564,7 @@
   <script src="{{ asset('assets/js/select2.min.js') }}"></script>
   <script src="{{ asset('assets/js/moment.min.js') }}"></script>
   <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
+  <script src="{{ asset('assets/js/nouislider.min.js') }}"></script>
   @livewireScripts
 
   @stack('scripts')
