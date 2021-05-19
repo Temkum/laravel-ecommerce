@@ -68,7 +68,9 @@
                         <a href="{{ route('admin.edithomeslider', ['slide_id' => $slider->id]) }}"><i
                             class="fa fa-edit fa-2x text-info mr-5"></i>
                         </a>
-                        <a href="#" wire:click.prevent="deleteSlide({{ $slider->id }})"><i
+                        <a href="#"
+                          onclick="confirm('Are you sure you want to delete this category?') || event.stopImmediatePropagation()"
+                          wire:click.prevent="deleteSlide({{ $slider->id }})"><i
                             class="fa fa-trash fa-2x text-danger"></i>
                         </a>
                       </td>

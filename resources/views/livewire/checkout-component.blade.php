@@ -21,7 +21,7 @@
             <input id="lname" type="text" name="lname" value="" placeholder="Your last name">
           </p>
           <p class="row-in-form">
-            <label for="email">Email Addreess:</label>
+            <label for="email">Email Address:</label>
             <input id="email" type="email" name="email" value="" placeholder="Type your email">
           </p>
           <p class="row-in-form">
