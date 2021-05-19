@@ -1565,6 +1565,10 @@
   <script src="{{ asset('assets/js/moment.min.js') }}"></script>
   <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
   <script src="{{ asset('assets/js/nouislider.min.js') }}"></script>
+  {{-- tinymce --}}
+  <script src="https://cdn.tiny.cloud/1/f8a094odr60v0sd68w9lovk814doy5oa20wosmmv6dfvurak/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"></script>
+
   @livewireScripts
 
   @stack('scripts')
