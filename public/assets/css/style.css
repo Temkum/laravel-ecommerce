@@ -746,7 +746,8 @@ header.fill-color .main-info-area .right-section .wrap-icon-section.minicart .in
     font-size: 12px;
     line-height: 12px;
     display: block;
-    background: #888;
+    /* background: #888; */
+    background: rgb(240, 167, 31);
     padding: 1.5px 7px;
     border-radius: 2px;
 }
@@ -8404,11 +8405,11 @@ svg {
 }
 
 .no-products {
-    margin-top: 2rem;
+    margin: 3rem;
     border-left: 4px solid blue;
     background-color: rgba(79, 76, 76, 0.083);
     padding-left: 2rem;
-    line-height: 8rem;
+    line-height: 4rem;
     font-size: 2rem;
     border-radius: 10px;
 }
