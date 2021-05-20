@@ -77,7 +77,7 @@
         <div class="row">
           <ul class="product-list grid-products equal-container">
             @php
-              $wish_item = Cart::instance('wishlist')
+              $wish_items = Cart::instance('wishlist')
                   ->content()
                   ->pluck('id');
             @endphp
@@ -104,8 +104,9 @@
                     </a>
                     {{-- WISH LIST --}}
                     <div class="product-wish">
-                      @if ($wish_item->contains($product->id))
-                        <a href="#"><i class="fa fa-heart fa-2x fill-heart"></i></a>
+                      @if ($wish_items->contains($product->id))
+                        <a href="#" wire:click.prevent="removeWishlistItem({{ $product->id }})"><i
+                            class="fa fa-heart fa-2x fill-heart"></i></a>
                       @else
                         <a href="#"
                           wire:click.prevent="addToWishlist({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})"><i

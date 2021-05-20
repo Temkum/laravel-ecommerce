@@ -42,6 +42,19 @@ class ShopComponent extends Component
         $this->emitTo('wishlist-count', 'refreshComponent');
     }
 
+    public function removeWishlistItem($product_id)
+    {
+        foreach (Cart::instance('wishlist')->content() as $wish_item) {
+            if ($wish_item->id == $product_id) {
+                Cart::instance('wishlist')->remove($wish_item->rowId);
+
+                $this->emitTo('wishlist-count', 'refreshComponent');
+
+                return;
+            }
+        }
+    }
+
     use WithPagination;
     public function render()
     {

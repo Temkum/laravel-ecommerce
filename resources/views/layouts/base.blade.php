@@ -34,7 +34,7 @@
   <!-- mobile menu -->
   <div class="mercado-clone-wrap">
     <div class="mercado-panels-actions-wrap">
-      <a class="mercado-close-btn mercado-close-panels" href="#">x</a>
+      <a class="mercado-close-btn mercado-close-panels" href="#">X</a>
     </div>
     <div class="mercado-panels"></div>
   </div>
@@ -107,7 +107,7 @@
                             <a title="Home Slider" href="{{ route('admin.homeslider') }}">Home Slider</a>
                           </li>
                           <li class="menu-item">
-                            <a title="Home Categories" href="{{ route('admin.homecategories') }}">Home
+                            <a title="Home Categories" href="{{ route('admin.homecategories') }}">Manage Home
                               Categories</a>
                           </li>
                           <li class="menu-item">

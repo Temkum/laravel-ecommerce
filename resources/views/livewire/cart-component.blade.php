@@ -20,7 +20,6 @@
         @if (Cart::instance('cart')->count() > 0)
           <h3 class="box-title">Products Name</h3>
           <ul class="products-cart">
-
             @foreach (Cart::instance('cart')->content() as $item)
               <li class="pr-cart-item">
                 <div class="product-image">
