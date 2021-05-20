@@ -1,17 +1,14 @@
 <main id="main" class="main-site left-sidebar">
-
   <div class="container">
-
     <div class="wrap-breadcrumb">
       <ul>
         <li class="item-link"><a href="#" class="link">home</a></li>
         <li class="item-link"><span>Digital & Electronics</span></li>
       </ul>
     </div>
+
     <div class="row">
-
       <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
-
         <div class="banner-shop">
           <a href="#" class="banner-link">
             <figure><img src="{{ asset('asset/images/shop-banner.jpg') }}" alt="">
@@ -20,11 +17,8 @@
         </div>
 
         <div class="wrap-shop-control">
-
           <h1 class="shop-title">Digital & Electronics</h1>
-
           <div class="wrap-right">
-
             <div class="sort-item orderby ">
               <select name="orderby" class="use-chosen" wire:model="sorting">
                 <option value="default" selected="selected">Default sorting</option>
@@ -50,14 +44,43 @@
               <a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
               <a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
             </div>
-
           </div>
-
         </div>
         <!--end wrap shop control-->
 
+        <style>
+          .product-wish {
+            position: absolute;
+            top: 10%;
+            left: 0;
+            right: 30px;
+            text-align: right;
+            padding-top: 0;
+            z-index: 99;
+          }
+
+          .product-wish .fa {
+            color: #cbcbcb;
+            font-size: 32px;
+          }
+
+          .product-wish .fa:hover {
+            color: #ff7007;
+          }
+
+          .fill-heart {
+            color: red !important;
+          }
+
+        </style>
+
         <div class="row">
           <ul class="product-list grid-products equal-container">
+            @php
+              $wish_item = Cart::instance('wishlist')
+                  ->content()
+                  ->pluck('id');
+            @endphp
             @foreach ($products as $product)
               <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                 <div class="product product-style-3 equal-elem ">
@@ -79,6 +102,16 @@
                       wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Add
                       To Cart
                     </a>
+                    {{-- WISH LIST --}}
+                    <div class="product-wish">
+                      @if ($wish_item->contains($product->id))
+                        <a href="#"><i class="fa fa-heart fa-2x fill-heart"></i></a>
+                      @else
+                        <a href="#"
+                          wire:click.prevent="addToWishlist({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})"><i
+                            class="fa fa-heart fa-2x"></i></a>
+                      @endif
+                    </div>
                   </div>
                 </div>
               </li>
