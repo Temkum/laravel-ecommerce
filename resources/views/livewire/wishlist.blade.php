@@ -53,8 +53,7 @@
                   <div class="wrap-price">
                     <span class="product-price">${{ $item->model->regular_price }}</span>
                   </div>
-                  <a href="#" class="btn add-to-cart"
-                    wire:click.prevent="store({{ $item->model->id }}, '{{ $item->model->name }}', {{ $item->model->regular_price }})">Add
+                  <a href="#" class="btn add-to-cart" wire:click.prevent="wishlistToCart('{{ $item->rowId }}')">Move
                     To Cart
                   </a>
 
