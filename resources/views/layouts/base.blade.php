@@ -113,6 +113,9 @@
                           <li class="menu-item">
                             <a title="Sale Timer Setting" href="{{ route('admin.sale') }}">Sale Timer Setting</a>
                           </li>
+                          <li class="menu-item">
+                            <a title="All Coupons" href="{{ route('admin.coupons') }}">Coupons</a>
+                          </li>
                           <li class="menu-item"><a href="{{ route('logout') }}"
                               onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
                           </li>
