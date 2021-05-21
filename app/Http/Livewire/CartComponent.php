@@ -3,25 +3,24 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-
 use Cart;
 
 class CartComponent extends Component
 {
-    public function increaseQuantity($rowId)
+    public function increaseQty($rowId)
     {
         $product = Cart::instance('cart')->get($rowId);
-        $qty = $product->quantity + 1;
-        Cart::instance('cart')->update($rowId, $qty);
+        $quantity = $product->quantity + 1;
+        Cart::instance('cart')->update($rowId, $quantity);
 
         $this->emitTo('cart-count', 'refreshComponent');
     }
 
-    public function decreaseQuantity($rowId)
+    public function decreaseQty($rowId)
     {
         $product = Cart::instance('cart')->get($rowId);
-        $qty = $product->quantity - 1;
-        Cart::instance('cart')->update($rowId, $qty);
+        $quantity = $product->quantity - 1;
+        Cart::instance('cart')->update($rowId, $quantity);
 
         $this->emitTo('cart-count', 'refreshComponent');
     }
