@@ -55,15 +55,13 @@
             @else
               <div class="wrap-price"><span class="product-price">${{ $product->regular_price }}</span></div>
             @endif
-
             <div class="stock-info in-stock">
               <p class="availability">Availability: <b>{{ $product->stock_status }}</b></p>
             </div>
             <div class="quantity">
               <span>Quantity:</span>
               <div class="quantity-input">
-                <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*"
-                  wire:model="quantity">
+                <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" wire:model="qty">
                 <a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantity"></a>
                 <a class="btn btn-increase" href="#" wire:click.prevent="increaseQuantity"></a>
               </div>
@@ -85,6 +83,7 @@
               </div>
             </div>
           </div>
+
           <div class="advance-info">
             <div class="tab-control normal">
               <a href="#description" class="tab-control-item active">description</a>
@@ -246,7 +245,6 @@
           <h2 class="widget-title">Popular Products</h2>
           <div class="widget-content">
             <ul class="products">
-
               @foreach ($popular_products as $pop_product)
                 <li class="product-item">
                   <div class="product product-widget-style">
@@ -273,7 +271,6 @@
       </div>
       <!--end sitebar-->
 
-
       <div class="single-advance-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="wrap-show-advance-info-box style-1 box-in-site">
           <h3 class="title-box">Related Products</h3>
@@ -281,7 +278,6 @@
             <div class="products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5"
               data-loop="false" data-nav="true" data-dots="false"
               data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"5"}}'>
-
               @foreach ($related_products as $rel_product)
                 <div class="product product-style-2 equal-elem ">
                   <div class="product-thumnail">

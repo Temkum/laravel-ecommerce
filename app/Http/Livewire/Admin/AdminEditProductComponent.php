@@ -98,7 +98,7 @@ class AdminEditProductComponent extends Component
         $product->SKU = $this->SKU;
         $product->stock_status = $this->stock_status;
         $product->featured = $this->featured;
-        $product->quantity = $this->quantity;
+        $product->qty = $this->qty;
         $product->category_id = $this->category_id;
 
         if ($this->new_image) {

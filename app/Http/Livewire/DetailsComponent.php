@@ -10,17 +10,17 @@ use Cart;
 class DetailsComponent extends Component
 {
     public $slug;
-    public $quantity;
+    public $qty;
 
     public function mount($slug)
     {
         $this->slug = $slug;
-        $this->quantity = 1;
+        $this->qty = 1;
     }
 
     public function store($product_id, $product_name, $product_price)
     {
-        Cart::add($product_id, $product_name, $this->quantity, $product_price)->associate('App\Models\Product');
+        Cart::add($product_id, $product_name, $this->qty, $product_price)->associate('App\Models\Product');
 
         session()->flash('success_msg', 'Item added to cart successfully!');
 
@@ -29,13 +29,13 @@ class DetailsComponent extends Component
 
     public function increaseQuantity()
     {
-        $this->quantity++;
+        $this->qty++;
     }
 
     public function decreaseQuantity()
     {
-        if ($this->quantity > 1) {
-            $this->quantity--;
+        if ($this->qty > 1) {
+            $this->qty--;
         }
     }
 
