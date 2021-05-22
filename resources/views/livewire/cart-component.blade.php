@@ -113,6 +113,7 @@
             </p>
           @endif
         </div>
+        
         <div class="checkout-info">
           @if (!Session::has('coupon'))
             <label class="checkbox-field">
