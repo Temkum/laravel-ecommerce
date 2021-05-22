@@ -66,14 +66,14 @@
                 <a class="btn btn-increase" href="#" wire:click.prevent="increaseQuantity"></a>
               </div>
             </div>
-
+            {{-- add to cart --}}
             <div class="wrap-butons">
               @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
-                <a href="{{ route('product.cart', ['slug' => $product->slug]) }}" class="btn add-to-cart"
+                <a href="#" class="btn add-to-cart"
                   wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}',{{ $product->sale_price }})">Add
                   to Cart</a>
               @else
-                <a href="{{ route('product.cart', ['slug' => $product->slug]) }}" class="btn add-to-cart"
+                <a href="#" class="btn add-to-cart"
                   wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}',{{ $product->regular_price }})">Add
                   to Cart</a>
               @endif
@@ -132,7 +132,8 @@
                             <p class="meta">
                               <strong class="woocommerce-review__author">admin</strong>
                               <span class="woocommerce-review__dash">–</span>
-                              <time class="woocommerce-review__published-date" datetime="2008-02-14 20:00">Tue, Aug 15,
+                              <time class="woocommerce-review__published-date" datetime="2008-02-14 20:00">Tue, Aug
+                                15,
                                 2017</time>
                             </p>
                             <div class="description">
@@ -151,7 +152,8 @@
 
                         <form action="#" method="post" id="commentform" class="comment-form" novalidate="">
                           <p class="comment-notes">
-                            <span id="email-notes">Your email address will not be published.</span> Required fields are
+                            <span id="email-notes">Your email address will not be published.</span> Required fields
+                            are
                             marked <span class="required">*</span>
                           </p>
                           <div class="comment-form-rating">
