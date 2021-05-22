@@ -11,6 +11,7 @@ class AdminAddCoupons extends Component
     public $type;
     public $value;
     public $cart_value;
+    public $expiry_date;
 
     public function updated($fields)
     {
@@ -19,6 +20,7 @@ class AdminAddCoupons extends Component
             'type' => 'required',
             'value' => 'required|numeric',
             'cart_value' => 'required|numeric',
+            'expiry_date' => 'required',
         ]);
     }
 
@@ -29,6 +31,7 @@ class AdminAddCoupons extends Component
             'type' => 'required',
             'value' => 'required|numeric',
             'cart_value' => 'required|numeric',
+            'expiry_date' => 'required',
         ]);
 
         $coupon = new Coupon();
@@ -36,11 +39,12 @@ class AdminAddCoupons extends Component
         $coupon->type = $this->type;
         $coupon->value = $this->value;
         $coupon->cart_value = $this->cart_value;
+        $coupon->expiry_date = $this->expiry_date;
         $coupon->save();
 
         session()->flash('message', 'Coupon created successfully!');
     }
-    
+
     public function render()
     {
         return view('livewire.admin.admin-add-coupons')->layout('layouts.base');

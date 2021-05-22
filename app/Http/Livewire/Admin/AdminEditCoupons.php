@@ -12,6 +12,7 @@ class AdminEditCoupons extends Component
     public $value;
     public $cart_value;
     public $coupon_id;
+    public $expiry_date;
 
     public function mount($coupon_id)
     {
@@ -30,6 +31,7 @@ class AdminEditCoupons extends Component
             'type' => 'required',
             'value' => 'required|numeric',
             'cart_value' => 'required|numeric',
+            'expiry_date' => 'required',
         ]);
     }
 
@@ -40,6 +42,7 @@ class AdminEditCoupons extends Component
             'type' => 'required',
             'value' => 'required|numeric',
             'cart_value' => 'required|numeric',
+            'expiry_date' => 'required',
         ]);
 
         $coupon = Coupon::find($this->coupon_id);
@@ -47,6 +50,7 @@ class AdminEditCoupons extends Component
         $coupon->type = $this->type;
         $coupon->value = $this->value;
         $coupon->cart_value = $this->cart_value;
+        $coupon->expiry_date = $this->expiry_date;
         $coupon->save();
 
         session()->flash('message', 'Coupon updated successfully!');
