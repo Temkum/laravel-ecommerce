@@ -9,7 +9,7 @@
     </div>
 
     <div class=" main-content-area">
-      <form action="">
+      <form wire:submit.prevent="placeOrder">
         <div class="row">
           <div class="col-md-12">
             <div class="wrap-address-billing">
@@ -212,7 +212,6 @@
               class="grand-total-price">${{ Session::get('checkout')['total'] }}</span>
           </p>
         @endif
-
         <button type="submit" class="btn btn-medium">Place order now</button>
       </div>
       <div class="summary-item shipping-method">

@@ -39,6 +39,8 @@ class CheckoutComponent extends Component
 
     public $paymentmode;
 
+    public $thankyou;
+
     public function updated($fields)
     {
         // billing address
@@ -58,6 +60,7 @@ class CheckoutComponent extends Component
         // shipping address form
         //TODO: watch this code for a bug
         if ($this->ship_to_different) {
+
             $this->validateOnly($fields, [
                 'alt_firstname' => 'required',
                 'alt_lastname' => 'required',
@@ -154,12 +157,30 @@ class CheckoutComponent extends Component
             $transaction->save();
         }
 
+        $this->thankyou = 1;
+
         Cart::instance('cart')->destroy();
         session()->forget('checkout');
     }
 
+    public function verifyCheckout()
+    {
+        if (!Auth::check()) {
+
+            return redirect()->route('login');
+        } elseif ($this->thankyou) {
+
+            return redirect()->route('thankyou');
+        } elseif (!session()->get('checkout')) {
+
+            return redirect()->route('product.cart');
+        }
+    }
+
     public function render()
     {
+        $this->verifyCheckout();
+
         return view('livewire.checkout-component')->layout('layouts.base');
     }
 }
