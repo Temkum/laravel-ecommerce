@@ -222,7 +222,7 @@ class CheckoutComponent extends Component
                         'source' => $token['id']
                     ]);
 
-                    $charge = $stripe->charge()->create([
+                    $charge = $stripe->charges()->create([
                         'customer' => $customer['id'],
                         'currency' => 'USD',
                         'amount' => session()->get('checkout')['total'],
