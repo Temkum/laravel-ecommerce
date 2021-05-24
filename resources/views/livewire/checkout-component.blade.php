@@ -1,4 +1,19 @@
 <main id="main" class="main-site">
+  <style>
+    .summary-item .row-in-form input[type=password],
+    .summary-item .row-in-form input[type=text],
+    .summary-item .row-in-form input[type=tel] {
+      font-size: 13px;
+      line-height: 19px;
+      display: inline-block;
+      height: 43px;
+      padding: 2px 20px;
+      max-width: 300px;
+      width: 100%;
+      border: 1px solid #e6e6e6;
+    }
+
+  </style>
 
   <div class="container">
     <div class="wrap-breadcrumb">
@@ -19,37 +34,37 @@
                   <label for="fname">first name<span>*</span></label>
                   <input id="" type="text" name="fname" value="" placeholder="Your name" wire:model="firstname">
                   @error('firstname')
-                  <div class="text-danger">{{ $message }}</div>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="lname">last name<span>*</span></label>
                   <input id="" type="text" name="lname" value="" placeholder="Your last name" wire:model="lastname">
                   @error('lastname')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="email">Email Address:</label>
                   <input id="" type="email" name="email" value="" placeholder="Type your email" wire:model="email">
                   @error('email')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="phone">Phone number<span>*</span></label>
                   <input id="" type="number" name="phone" value="" placeholder="10 digits format" wire:model="mobile">
                   @error('mobile')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="add">Line 1:</label>
                   <input id="" type="text" name="add" value="" placeholder="Street at apartment number"
                     wire:model="line1">
                   @error('line1')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="add">Line 2:</label>
@@ -61,29 +76,29 @@
                   <input id="" type="number" name="zip-code" value="" placeholder="Your postal code"
                     wire:model="zipcode">
                   @error('zipcode')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="country">Country<span>*</span></label>
                   <input id="" type="text" name="country" value="" placeholder="ex. United States" wire:model="country">
                   @error('country')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="city">State<span>*</span></label>
                   <input id="" type="text" name="city" value="" placeholder="State" wire:model="state">
                   @error('state')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="city">Town / City<span>*</span></label>
                   <input id="" type="text" name="city" value="" placeholder="City name" wire:model="city">
                   @error('city')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form fill-wife">
                   <label class="checkbox-field">
@@ -104,38 +119,38 @@
                   <label for="fname">first name<span>*</span></label>
                   <input id="" type="text" name="fname" value="" placeholder="Your name" wire:model="alt_firstname">
                   @error('alt_firstname')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="lname">last name<span>*</span></label>
                   <input id="" type="text" name="lname" value="" placeholder="Your last name" wire:model="alt_lastname">
                   @error('alt_lastname')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="email">Email Address:</label>
                   <input id="" type="email" name="email" value="" placeholder="Type your email" wire:model="alt_email">
                   @error('alt_email')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="phone">Phone number<span>*</span></label>
                   <input id="" type="number" name="phone" value="" placeholder="10 digits format"
                     wire:model="alt_mobile">
                   @error('alt_mobile')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="add">Line 1:</label>
                   <input id="" type="text" name="add" value="" placeholder="Street at apartment number"
                     wire:model="alt_line1">
                   @error('alt_line1')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="add">Line 2:</label>
@@ -147,30 +162,30 @@
                   <input id="" type="number" name="zip-code" value="" placeholder="Your postal code"
                     wire:model="alt_zipcode">
                   @error('alt_zipcode')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="country">Country<span>*</span></label>
                   <input id="" type="text" name="country" value="" placeholder="ex. United States"
                     wire:model="alt_country">
                   @error('alt_country')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="city">State<span>*</span></label>
                   <input id="" type="text" name="city" value="" placeholder="State" wire:model="alt_state">
                   @error('alt_state')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
                 <p class="row-in-form">
                   <label for="city">Town / City<span>*</span></label>
                   <input id="" type="text" name="city" value="" placeholder="City name" wire:model="alt_city">
                   @error('alt_city')
-                  <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </p>
               </div>
             </div>
@@ -180,9 +195,44 @@
         <div class="summary summary-checkout">
           <div class="summary-item payment-method">
             <h4 class="title-box">Payment Method</h4>
-            <p class="summary-info"><span class="title">Check / Money order</span></p>
-            <p class="summary-info"><span class="title">Credit Card(saved)</span></p>
+            @if ($paymentmode == 'card')
+              <div class="wrap-address-billing">
+                @if (Session::has('stripe_error'))
+                  <div class="alert alert-danger" role="alert">{{ Session::get('stripe_error') }}</div>
+                @endif
+                <p class="row-in-form">
+                  <label for="card-number">Card Number</label>
+                  <input id="" type="text" name="" value="" placeholder="Card Number" wire:model="card_no">
+                  @error('card_no')
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
+                </p>
 
+                <p class="row-in-form">
+                  <label for="exp-month">Expiry Month</label>
+                  <input id="" type="text" name="" value="" placeholder="MM" wire:model="exp_month">
+                  @error('exp_month')
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
+                </p>
+
+                <p class="row-in-form">
+                  <label for="card-number">Expiry Year</label>
+                  <input id="" type="text" name="" value="" placeholder="YYYY" wire:model="exp_year">
+                  @error('exp_year')
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
+                </p>
+
+                <p class="row-in-form">
+                  <label for="cvc">CVC</label>
+                  <input id="" type="password" name="" value="" placeholder="cvc" wire:model="cvc">
+                  @error('cvc')
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
+                </p>
+              </div>
+            @endif
             <div class="choose-payment-methods">
               <label class="payment-method">
                 <input name="payment-method" id="payment-method-bank" value="cod" type="radio" wire:model="paymentmode">

@@ -23,6 +23,7 @@ use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminEditProductComponent;
 use App\Http\Livewire\Admin\AdminHomeCategory;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
+use App\Http\Livewire\Admin\AdminOrder;
 use App\Http\Livewire\Admin\AdminSale;
 use App\Http\Livewire\ThankYou;
 use App\Http\Livewire\Wishlist;
@@ -80,6 +81,8 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () 
     Route::get('/admin/coupons', AdminCoupons::class)->name('admin.coupons');
     Route::get('/admin/coupons/add', AdminAddCoupons::class)->name('admin.addcoupon');
     Route::get('/admin/coupon/edit/{coupon_id}', AdminEditCoupons::class)->name('admin.editcoupon');
+
+    Route::get('/admin/orders', AdminOrder::class)->name('admin.orders');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
