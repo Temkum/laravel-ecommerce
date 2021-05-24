@@ -20,7 +20,6 @@
         </div>
       </div>
     </div>
-    <!--end container-->
 
   </main>
 </div>

@@ -58,7 +58,6 @@ class CheckoutComponent extends Component
         ]);
 
         // shipping address form
-        //TODO: watch this code for a bug
         if ($this->ship_to_different) {
 
             $this->validateOnly($fields, [
@@ -119,6 +118,7 @@ class CheckoutComponent extends Component
             $orderItem->quantity = $item->qty;
         }
 
+        // alternative shipping address
         if ($this->ship_to_different) {
             $this->validate([
                 'alt_firstname' => 'required',

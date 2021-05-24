@@ -86,7 +86,7 @@
               </p>
               <p class="row-in-form fill-wife">
                 <label class="checkbox-field">
-                  <input name="different-add" id="different-add" value="1" type="checkbox"
+                  <input name="different-add" id="" value="1" type="checkbox"
                     wire:model="ship_to_different">
                   <span>Ship to a different address?</span>
                 </label>
@@ -181,7 +181,7 @@
       <div class="summary-item payment-method">
         <h4 class="title-box">Payment Method</h4>
         <p class="summary-info"><span class="title">Check / Money order</span></p>
-        <p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
+        <p class="summary-info"><span class="title">Credit Card(saved)</span></p>
 
         <div class="choose-payment-methods">
           <label class="payment-method">
