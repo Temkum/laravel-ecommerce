@@ -29,7 +29,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="panel panel-default">
+        <div class="panel-default panel">
           <div class="panel-heading">
             <div class="row">
               <div class="col-md-6 mr-3">
@@ -41,6 +41,34 @@
             </div>
           </div>
 
+          <div class="panel-body">
+            <table class="table">
+              <tr>
+                <th>Order ID</th>
+                <td>{{ $order->id }}</td>
+
+                <th>Order Date</th>
+                <td>{{ $order->created_at }}</td>
+
+                <th>Status</th>
+                <td>{{ ucfirst($order->status) }}</td>
+                @if ($order->status == 'delivered')
+                  <th>Delivery date</th>
+                  <td>{{ $order->date_delivered }}</td>
+                @elseif($order->status == 'cancelled')
+                  <th>Cancellation date</th>
+                  <td>{{ $order->date_cancelled }}</td>
+                @endif
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
           <div class="panel-body">
             <div class="wrap-iten-in-cart">
               <h3 class="box-title">Product Name</h3>
