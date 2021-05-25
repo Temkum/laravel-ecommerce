@@ -29,21 +29,55 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
+        @if (Session::has('order_msg'))
+          <div class="alert alert-success" role="alert">{{ Session::get('order_msg') }}</div>
+        @endif
         <div class="panel panel-default">
           <div class="panel-heading">
             <div class="row">
-              <div class="col-md-6 mr-3">
+              <div class="col-md-6 ml-3">
                 <a href="{{ route('user.orders') }}" class="btn btn-default btn-small">Back to My Orders </a>
               </div>
               <div class="col-md-6 text-lg">
-                My DETAILS
+                Order details
+                @if ($order->status=='ordered')
+                <a href="#" class="btn btn-warning pull-right" wire:click.prevent="cancelOrder">Cancel Order</a>
+                @endif
               </div>
             </div>
           </div>
+          <div class="panel-body">
+            <table class="table">
+              <tr>
+                <th>Order ID</th>
+                <td>{{ $order->id }}</td>
+
+                <th>Order date</th>
+                <td>{{ $order->created_at }}</td>
+
+                <th>Status</th>
+                <td>{{ ucfirst($order->status) }}</td>
+                @if ($order->status == 'delivered')
+                  <th>Delivery date</th>
+                  <td>{{ $order->date_delivered }}</td>
+                @elseif($order->status == 'cancelled')
+                  <th>Cancellation date</th>
+                  <td>{{ $order->date_cancelled }}</td>
+                @endif
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
 
           <div class="panel-body">
             <div class="wrap-iten-in-cart">
-              <h3 class="box-title">Product Name</h3>
+              <h3 class="box-title">Order items</h3>
               <ul class="products-cart">
                 @foreach ($order->orderItems as $item)
                   <li class="pr-cart-item">
