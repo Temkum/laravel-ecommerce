@@ -29,6 +29,7 @@ use App\Http\Livewire\Admin\AdminSale;
 use App\Http\Livewire\ThankYou;
 use App\Http\Livewire\User\UserOrderDetails;
 use App\Http\Livewire\User\UserOrders;
+use App\Http\Livewire\User\UserReview;
 use App\Http\Livewire\Wishlist;
 
 /*
@@ -94,4 +95,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('/user/orders', UserOrders::class)->name('user.orders');
     Route::get('/user/orders/{order_id}', UserOrderDetails::class)->name('user.orderdetails');
+
+    Route::get('/user/review/{order_item_id}', UserReview::class)->name('user.review');
 });
