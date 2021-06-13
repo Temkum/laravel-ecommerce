@@ -46,10 +46,12 @@
                 @endphp
               @endforeach
               @for ($i = 1; $i <= 5; $i++)
-                @if ($i <= $avg_rating) <i class="fa fa-star" aria-hidden="true"></i>
-              @else
-                <i class="fa fa-star color-gray" aria-hidden="true"></i> @endif
-                   @endfor
+                @if ($i <= $avg_rating) 
+                <i class="fa fa-star" aria-hidden="true"></i>
+                @else
+                <i class="fa fa-star color-gray" aria-hidden="true"></i> 
+                @endif
+                @endfor
                   <a href="#" class="count-review">({{ $product->orderItems->where('rev_status', 1)->count() }}
                     review)</a>
             </div>
@@ -130,26 +132,32 @@
 
               <div class="tab-content-item " id="review">
                 <div class="wrap-review-form">
-                    <style>
-                        .width-0-percent{
-                            width:0%;
-                        }
-                        .width-20-percent{
-                            width:20%;
-                        }
-                        .width-40-percent{
-                            width:40%;
-                        }
-                        .width-60-percent{
-                            width:60%;
-                        }
-                        .width-80-percent{
-                            width:80%;
-                        }
-                        .width-100-percent{
-                            width:100%;
-                        }
-                    </style>
+                  <style>
+                    .width-0-percent {
+                      width: 0%;
+                    }
+
+                    .width-20-percent {
+                      width: 20%;
+                    }
+
+                    .width-40-percent {
+                      width: 40%;
+                    }
+
+                    .width-60-percent {
+                      width: 60%;
+                    }
+
+                    .width-80-percent {
+                      width: 80%;
+                    }
+
+                    .width-100-percent {
+                      width: 100%;
+                    }
+
+                  </style>
                   <div id="comments">
                     <h2 class="woocommerce-Reviews-title">{{ $product->orderitems->where('rev_status', 1)->count() }}
                       review for <span>{{ $product->name }}</span></h2>
@@ -161,16 +169,18 @@
                             <img alt="" src="{{ asset('assets/images/author-avata.jpg') }}" height="80" width="80">
                             <div class="comment-text">
                               <div class="star-rating">
-                                <span class="width-{{ $orderItem->review->rating * 20}}-percent">Rated <strong
-                                          class="rating">{{$orderItem->review->rating}}</strong> out of 5</span>
+                                <span class="width-{{ $orderItem->review->rating * 20 }}-percent">Rated <strong
+                                          class="rating">{{ $orderItem->review->rating }}</strong> out of 5</span>
                               </div>
                               <p class="meta">
-                                <strong class="woocommerce-review__author">{{ $orderItem->order->user->name }}</strong>
+                                <strong
+                                        class="woocommerce-review__author">{{ $orderItem->order->user->name }}</strong>
                                 <span class="woocommerce-review__dash">–</span>
-                                <time class="woocommerce-review__published-date" datetime="2008-02-14 20:00">{{Carbon\Carbon::parse($orderItem->review->created_at)->format('d F Y g:i A')}}</time>
+                                <time class="woocommerce-review__published-date"
+                                      datetime="2008-02-14 20:00">{{ Carbon\Carbon::parse($orderItem->review->created_at)->format('d F Y g:i A') }}</time>
                               </p>
                               <div class="description">
-                                <p>{{$orderItem->review->comment}}</p>
+                                <p>{{ $orderItem->review->comment }}</p>
                               </div>
                             </div>
                           </div>
