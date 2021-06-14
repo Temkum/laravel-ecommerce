@@ -41,7 +41,7 @@ class UserChangePassword extends Component
             session()->flash('pwd_error', 'Passwords do not match!');
         }
     }
-    
+
     public function render()
     {
         return view('livewire.user.user-change-password')->layout('layouts.base');

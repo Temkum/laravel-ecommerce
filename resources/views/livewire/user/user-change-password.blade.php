@@ -34,6 +34,7 @@
                   @enderror
                 </div>
               </div>
+              
               <div class="form-group">
                 <label for="" class="col-md-4 control-label">Repeat password</label>
                 <div class="col-md-4">
