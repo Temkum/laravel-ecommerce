@@ -34,6 +34,7 @@ use App\Http\Livewire\Admin\AdminEditCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminContactComponent;
 use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
+use App\Http\Livewire\Admin\AdminSettings;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +96,8 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () 
     Route::get('/admin/orders/{order_id}', AdminOrderDetails::class)->name('admin.orderdetails');
 
     Route::get('/admin/admin-contact', AdminContactComponent::class)->name('admin.contact');
+
+    Route::get('/admin/settings', AdminSettings::class)->name('admin.settings');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

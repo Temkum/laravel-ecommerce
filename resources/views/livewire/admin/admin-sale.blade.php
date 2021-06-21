@@ -43,7 +43,7 @@
                 <label for="" class="col-md-4 control-label">Date</label>
                 <div class="col-md-4">
                   <input type="text" id="sale-date" placeholder="DD/MM/YYYY H:M:S" class="form-control input-md"
-                    wire:model="sale_date">
+                         wire:model="sale_date">
                 </div>
               </div>
 
