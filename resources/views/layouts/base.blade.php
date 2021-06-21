@@ -251,7 +251,9 @@
 
   {{ $slot }}
 
-  <footer id="footer">
+  @livewire('footer')
+
+  {{-- <footer id="footer">
     <div class="wrap-footer-content footer-style-1">
 
       <div class="wrap-function-info">
@@ -515,7 +517,7 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer> --}}
 
   <script src="{{ asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
   <script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
