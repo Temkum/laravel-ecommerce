@@ -27,7 +27,7 @@
         <div class="wrap-product-detail">
           <div class="detail-media">
               {{-- PRODUCT GALLERY --}}
-            <div class="product-gallery">
+            <div class="product-gallery" wire:ignore>
               <ul class="slides">
                 <li data-thumb="{{ asset('assets/images/products') }}/{{ $product->image }}">
                   <img src="{{ asset('assets/images/products') }}/{{ $product->image }}"
