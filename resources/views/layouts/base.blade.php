@@ -8,11 +8,11 @@
   <title>Home</title>
   <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon1.ico">
   <link
-        href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext"
-        rel="stylesheet">
+    href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext"
+    rel="stylesheet">
   <link
-        href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext"
-        rel="stylesheet">
+    href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext"
+    rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css') }}">
@@ -49,7 +49,7 @@
               <ul>
                 <li class="menu-item">
                   <a title="Hotline: (+123) 456 789" href="#"><span
-                          class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
+                      class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
                 </li>
               </ul>
             </div>
@@ -57,17 +57,17 @@
               <ul>
                 <li class="menu-item lang-menu menu-item-has-children parent">
                   <a title="English" href="#"><span class="img label-before"><img
-                           src="{{ asset('assets/images/lang-en.png') }}" alt="lang-en"></span>English<i
-                       class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        src="{{ asset('assets/images/lang-en.png') }}" alt="lang-en"></span>English<i
+                      class="fa fa-angle-down" aria-hidden="true"></i></a>
                   <ul class="submenu lang">
                     <li class="menu-item"><a title="hungary" href="#"><span class="img label-before"><img
-                               src="{{ asset('assets/images/lang-hun.png') }}" alt="lang-hun"></span>Hungary</a></li>
+                            src="{{ asset('assets/images/lang-hun.png') }}" alt="lang-hun"></span>Hungary</a></li>
                     <li class="menu-item"><a title="german" href="#"><span class="img label-before"><img
-                               src="{{ asset('assets/images/lang-ger.png') }}" alt="lang-ger"></span>German</a></li>
+                            src="{{ asset('assets/images/lang-ger.png') }}" alt="lang-ger"></span>German</a></li>
                     <li class="menu-item"><a title="french" href="#"><span class="img label-before"><img
-                               src="{{ asset('assets/images/lang-fra.png') }}" alt="lang-fre"></span>French</a></li>
+                            src="{{ asset('assets/images/lang-fra.png') }}" alt="lang-fre"></span>French</a></li>
                     <li class="menu-item"><a title="canada" href="#"><span class="img label-before"><img
-                               src="{{ asset('assets/images/lang-can.png') }}" alt="lang-can"></span>Canada</a></li>
+                            src="{{ asset('assets/images/lang-can.png') }}" alt="lang-can"></span>Canada</a></li>
                   </ul>
                 </li>
                 <li class="menu-item menu-item-has-children parent">
@@ -87,11 +87,11 @@
 
                 @if (Route::has('login'))
                   @auth
-                    @if (Auth::user()->user_type === 'ADMIN')
+                    @if (Auth::user()->user_type === 'ADM')
                       {{-- display admin link --}}
                       <li class="menu-item menu-item-has-children parent">
                         <a title="My Account" href="#">My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down"
-                             aria-hidden="true"></i>
+                            aria-hidden="true"></i>
                         </a>
                         <ul class="submenu curency">
                           <li class="menu-item">
@@ -126,7 +126,7 @@
                             <a title="Admin Settings" href="{{ route('admin.settings') }}">Settings</a>
                           </li>
                           <li class="menu-item"><a href="{{ route('logout') }}"
-                               onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
+                              onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
                           </li>
 
                           <form action="{{ route('logout') }}" method="post" id="logout">
@@ -138,7 +138,7 @@
                       {{-- normal user or customer --}}
                       <li class=" menu-item menu-item-has-children parent">
                         <a title="My Account" href="#">My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down"
-                             aria-hidden="true"></i>
+                            aria-hidden="true"></i>
                         </a>
                         <ul class="submenu curency">
                           <li class="menu-item">
@@ -154,7 +154,7 @@
                           </li>
 
                           <li class="menu-item"><a href="{{ route('logout') }}"
-                               onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
+                              onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
                           </li>
 
                           <form action="{{ route('logout') }}" method="post" id="logout">
@@ -179,7 +179,7 @@
 
             <div class="wrap-logo-top left-section">
               <a href="/" class="link-to-home"><img src="{{ asset('assets/images/tk-logo.png') }}" alt="mercado"
-                     width="50px" height="50px"></a>
+                  width="50px" height="50px"></a>
             </div>
 
             @livewire('header-search-component')
@@ -207,15 +207,15 @@
             <div class="container">
               <ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu" data-menuname="Sale Info">
                 <li class="menu-item"><a href="#" class="link-term">Weekly Featured</a><span
-                        class="nav-label hot-label">hot</span></li>
+                    class="nav-label hot-label">hot</span></li>
                 <li class="menu-item"><a href="#" class="link-term">Hot Sale items</a><span
-                        class="nav-label hot-label">hot</span></li>
+                    class="nav-label hot-label">hot</span></li>
                 <li class="menu-item"><a href="#" class="link-term">Top new items</a><span
-                        class="nav-label hot-label">hot</span></li>
+                    class="nav-label hot-label">hot</span></li>
                 <li class="menu-item"><a href="#" class="link-term">Top Selling</a><span
-                        class="nav-label hot-label">hot</span></li>
+                    class="nav-label hot-label">hot</span></li>
                 <li class="menu-item"><a href="#" class="link-term">Top rated items</a><span
-                        class="nav-label hot-label">hot</span></li>
+                    class="nav-label hot-label">hot</span></li>
               </ul>
             </div>
           </div>
@@ -268,7 +268,7 @@
   <script src="{{ asset('assets/js/nouislider.min.js') }}"></script>
   {{-- tinymce --}}
   <script src="https://cdn.tiny.cloud/1/f8a094odr60v0sd68w9lovk814doy5oa20wosmmv6dfvurak/tinymce/5/tinymce.min.js"
-          referrerpolicy="origin"></script>
+    referrerpolicy="origin"></script>
 
   @livewireScripts
 

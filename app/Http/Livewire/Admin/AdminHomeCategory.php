@@ -14,8 +14,8 @@ class AdminHomeCategory extends Component
     public function mount()
     {
         $category = HomeCategory::find(1);
-        $this->selected_categories = explode(',', $category->select_category);
-        $this->number_of_products = $category->no_of_products;
+        $this->selected_categories = explode(',', $category->select_category ?? '');
+        $this->number_of_products = $category->no_of_products ?? '';
     }
 
     public function updateHomeCategory()

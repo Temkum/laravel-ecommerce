@@ -56,15 +56,15 @@
                     <ul>
                       <li>
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        <p class="contact-txt">{{ $setting->address }}</p>
+                        <p class="contact-txt">{{ $setting->address ?? '' }}</p>
                       </li>
                       <li>
                         <i class="fa fa-phone" aria-hidden="true"></i>
-                        <p class="contact-txt">{{ $setting->phone }}</p>
+                        <p class="contact-txt">{{ $setting->phone ?? '' }}</p>
                       </li>
                       <li>
                         <i class="fa fa-envelope" aria-hidden="true"></i>
-                        <p class="contact-txt">{{ $setting->email }}</p>
+                        <p class="contact-txt">{{ $setting->email ?? '' }}</p>
                       </li>
                     </ul>
                   </div>
@@ -79,7 +79,7 @@
                 <div class="item-content">
                   <div class="wrap-hotline-footer">
                     <span class="desc">Call Us toll Free</span>
-                    <b class="phone-number">{{ $setting->phone2 }}</b>
+                    <b class="phone-number">{{ $setting->phone2 ?? '' }}</b>
                   </div>
                 </div>
               </div>
@@ -90,13 +90,12 @@
                   <div class="wrap-newletter-footer">
                     <form action="#" class="frm-newletter" id="frm-newletter">
                       <input type="email" class="input-email" name="email" value=""
-                             placeholder="Enter your email address">
+                        placeholder="Enter your email address">
                       <button class="btn-submit">Subscribe</button>
                     </form>
                   </div>
                 </div>
               </div>
-
             </div>
 
             <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12 box-twin-content ">
@@ -153,20 +152,16 @@
                 <div class="item-content">
                   <div class="wrap-list-item social-network">
                     <ul>
-                      <li><a href="{{ $setting->twitter }}" class="link-to-item" title="twitter"><i
-                             class="fa fa-twitter"
-                             aria-hidden="true"></i></a></li>
-                      <li><a href="{{ $setting->facebook }}" class="link-to-item" title="facebook"><i
-                             class="fa fa-facebook"
-                             aria-hidden="true"></i></a></li>
-                      <li><a href="{{ $setting->pinterest }}" class="link-to-item" title="pinterest"><i
-                             class="fa fa-pinterest"
-                             aria-hidden="true"></i></a></li>
-                      <li><a href="{{ $setting->instagram }}" class="link-to-item" title="instagram"><i
-                             class="fa fa-instagram"
-                             aria-hidden="true"></i></a></li>
-                      <li><a href="{{ $setting->youtube }}" class="link-to-item" title="vimeo"><i class="fa fa-youtube"
-                             aria-hidden="true"></i></a></li>
+                      <li><a href="{{ $setting->twitter ?? '' }}" class="link-to-item" title="twitter"><i
+                            class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                      <li><a href="{{ $setting->facebook ?? '' }}" class="link-to-item" title="facebook"><i
+                            class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                      <li><a href="{{ $setting->pinterest ?? '' }}" class="link-to-item" title="pinterest"><i
+                            class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                      <li><a href="{{ $setting->instagram ?? '' }}" class="link-to-item" title="instagram"><i
+                            class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                      <li><a href="{{ $setting->youtube ?? '' }}" class="link-to-item" title="vimeo"><i
+                            class="fa fa-youtube" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -181,11 +176,11 @@
                     <ul>
                       <li><a href="#" class="link-to-item" title="our application on apple store">
                           <figure><img src="{{ asset('assets/images/brands/apple-store.png') }}" alt="apple store"
-                                 width="128" height="36"></figure>
+                              width="128" height="36"></figure>
                         </a></li>
                       <li><a href="#" class="link-to-item" title="our application on google play store">
                           <figure><img src="{{ asset('assets/images/brands/google-play-store.png') }}"
-                                 alt="google play store" width="128" height="36"></figure>
+                              alt="google play store" width="128" height="36"></figure>
                         </a></li>
                     </ul>
                   </div>
@@ -257,8 +252,10 @@
             <div class="wrap-nav horizontal-nav">
               <ul>
                 <li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>
-                <li class="menu-item"><a href="privacy-policy.html" class="link-term">Privacy Policy</a></li>
-                <li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms & Conditions</a></li>
+                <li class="menu-item"><a href="privacy-policy.html" class="link-term">Privacy Policy</a>
+                </li>
+                <li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms &
+                    Conditions</a></li>
                 <li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>
               </ul>
             </div>

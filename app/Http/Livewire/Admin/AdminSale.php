@@ -13,8 +13,8 @@ class AdminSale extends Component
     public function mount()
     {
         $sale = Sale::find(1);
-        $this->sale_date = $sale->sale_date;
-        $this->status = $sale->status;
+        $this->sale_date = $sale->sale_date ?? '';
+        $this->status = $sale->status ?? '';
     }
 
     public function updateSale()

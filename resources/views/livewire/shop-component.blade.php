@@ -170,7 +170,8 @@
         </div><!-- brand widget-->
 
         <div class="widget mercado-widget filter-widget price-filter">
-          <h2 class="widget-title">Price <span class="text-info">${{ $min_price }} - ${{ $max_price }}</span>
+          <h2 class="widget-title">Price <span class="text-info">${{ $min_price }} -
+              ${{ $max_price }}</span>
           </h2>
           <div class="widget-content">
             <div id="slider" wire:ignore></div>
@@ -220,7 +221,8 @@
                     </a>
                   </div>
                   <div class="product-info">
-                    <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
+                    <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
+                        Speaker...</span></a>
                     <div class="wrap-price"><span class="product-price">$168.00</span></div>
                   </div>
                 </div>
@@ -234,7 +236,8 @@
                     </a>
                   </div>
                   <div class="product-info">
-                    <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
+                    <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
+                        Speaker...</span></a>
                     <div class="wrap-price"><span class="product-price">$168.00</span></div>
                   </div>
                 </div>
@@ -248,7 +251,8 @@
                     </a>
                   </div>
                   <div class="product-info">
-                    <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
+                    <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
+                        Speaker...</span></a>
                     <div class="wrap-price"><span class="product-price">$168.00</span></div>
                   </div>
                 </div>
@@ -287,6 +291,5 @@
       @this.set('min_price', value[0]);
       @this.set('max_price', value[1]);
     })
-
   </script>
 @endpush

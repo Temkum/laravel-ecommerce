@@ -20,9 +20,9 @@ class HomeComponent extends Component
 
         // make home categories dynamic
         $category = HomeCategory::find(1);
-        $dynamic_cats = explode(',', $category->select_category);
+        $dynamic_cats = explode(',', $category->select_category ?? '');
         $categories = Category::whereIn('id', $dynamic_cats)->get();
-        $num_of_products = $category->no_of_products;
+        $num_of_products = $category->no_of_products ?? "";
 
         // On sale carousel
         $onsale_products = Product::where('sale_price', '>', 0)->inRandomOrder()->get()->take(8);

@@ -13,7 +13,7 @@ class ContactComponent extends Component
     public $phone;
     public $comment;
 
-    public function updated($fields,)
+    public function updated($fields)
     {
         $this->validateOnly($fields, [
             'name' => 'required',
