@@ -17,7 +17,7 @@
   <div class="container">
     <div class="wrap-breadcrumb">
       <ul>
-        <li class="item-link"><a href="#" class="link">home</a></li>
+        <li class="item-link"><a href="/" class="link">home</a></li>
         <li class="item-link"><span>detail</span></li>
       </ul>
     </div>
@@ -171,7 +171,8 @@
 
                   </style>
                   <div id="comments">
-                    <h2 class="woocommerce-Reviews-title">{{ $product->orderitems->where('rev_status', 1)->count() }}
+                    <h2 class="woocommerce-Reviews-title">
+                      {{ $product->orderitems->where('rev_status', 1)->count() }}
                       review for <span>{{ $product->name }}</span></h2>
                     <ol class="commentlist">
                       @foreach ($product->orderItems->where('rev_status', 1) as $orderItem)
@@ -182,7 +183,8 @@
                             <div class="comment-text">
                               <div class="star-rating">
                                 <span class="width-{{ $orderItem->review->rating * 20 }}-percent">Rated <strong
-                                    class="rating">{{ $orderItem->review->rating }}</strong> out of 5</span>
+                                    class="rating">{{ $orderItem->review->rating }}</strong> out of
+                                  5</span>
                               </div>
                               <p class="meta">
                                 <strong
