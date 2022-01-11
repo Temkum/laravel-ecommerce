@@ -35,7 +35,7 @@
     </x-jet-authentication-card>
 </x-guest-layout> --}}
 
-<x-guest-layout>
+<x-base-layout>
   <main id="main" class="main-site left-sidebar">
 
     <div class="container">
@@ -73,7 +73,7 @@
                     <input type="password" id="password_confirmation" name="password_confirmation"
                       placeholder="Confirm Password" required>
                   </fieldset>
-                     <input type="submit" class="btn btn-submit" value="Reset Password" name="submit">
+                  <input type="submit" class="btn btn-submit" value="Reset Password" name="submit">
                 </form>
               </div>
             </div>
@@ -86,4 +86,4 @@
     </div>
     <!--end container-->
   </main>
-</x-guest-layout>
+</x-base-layout>

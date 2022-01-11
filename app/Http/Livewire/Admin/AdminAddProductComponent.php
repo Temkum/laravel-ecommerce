@@ -2,11 +2,10 @@
 
 namespace App\Http\Livewire\Admin;
 
-use Livewire\Component;
 use App\Models\Category;
 use App\Models\Product;
-use Carbon\Carbon;
 use Illuminate\Support\Str;
+use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class AdminAddProductComponent extends Component
@@ -93,9 +92,9 @@ class AdminAddProductComponent extends Component
             # code...
             $images_name = '';
             foreach ($this->images as $key => $image) {
-                $imgName = Carbon::now()->timestamp . $key . '.' . $image->extension();
+                $imgName = $this->name . $key . '.' . $image->extension();
                 $image->storeAs('products', $imgName);
-                $images_name=$images_name. ','. $imgName;
+                $images_name = $images_name . ',' . $imgName;
             }
             $product->images = $images_name;
         }

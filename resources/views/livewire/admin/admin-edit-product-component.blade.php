@@ -141,9 +141,9 @@
                   @else
                     <img src="{{ asset('assets/images/products') }}/{{ $image }}" width="120" />
                   @endif
-                  {{-- @error('new_image')
+                  @error('new_image')
                     <p class="text-danger">{{ $message }}</p>
-                  @enderror --}}
+                  @enderror
                 </div>
               </div>
 

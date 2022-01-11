@@ -27,6 +27,8 @@ class AdminEditProductComponent extends Component
     public $new_image;
     public $product_id;
 
+    public $images;
+
     public function mount($product_slug)
     {
         $product = Product::where('slug', $product_slug)->first();
@@ -45,6 +47,7 @@ class AdminEditProductComponent extends Component
         $this->category_id = $product->category_id;
         $this->new_image = $product->new_image;
         $this->product_id = $product->id;
+        $this->images = $product->images;
     }
 
     public function generateSlug()
@@ -101,7 +104,12 @@ class AdminEditProductComponent extends Component
     public function render()
     {
         $categories = Category::all();
+        $images = Product::all();
 
-        return view('livewire.admin.admin-edit-product-component', ['categories' => $categories])->layout('layouts.base');
+        $data = [
+            'categories' => $categories,
+        ];
+
+        return view('livewire.admin.admin-edit-product-component', $data)->layout('layouts.base');
     }
 }
