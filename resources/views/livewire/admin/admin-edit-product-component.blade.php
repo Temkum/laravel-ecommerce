@@ -141,7 +141,28 @@
                   @else
                     <img src="{{ asset('assets/images/products') }}/{{ $image }}" width="120" />
                   @endif
-                  @error('new_image')
+                  {{-- @error('new_image')
+                    <p class="text-danger">{{ $message }}</p>
+                  @enderror --}}
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="" class="col-md-4 control-label">Product Gallery</label>
+                <div class="col-md-4">
+                  <input type="file" name="" id="" class="input-file" wire:model="new_images" multiple>
+                  @if ($new_images)
+                    @foreach ($new_images as $new_image)
+                      <img src="{{ $new_image->temporaryUrl() }}" width="120" />
+                    @endforeach
+                  @else
+                    @foreach ($images as $image)
+                      @if ($image)
+                        <img src="{{ asset('assets/images/products') }}/{{ $image }}" width="120" />
+                      @endif
+                    @endforeach
+                  @endif
+                  @error('new_images')
                     <p class="text-danger">{{ $message }}</p>
                   @enderror
                 </div>

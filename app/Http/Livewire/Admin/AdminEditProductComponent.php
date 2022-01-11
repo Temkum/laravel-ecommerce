@@ -28,6 +28,7 @@ class AdminEditProductComponent extends Component
     public $product_id;
 
     public $images;
+    public $new_images;
 
     public function mount($product_slug)
     {
@@ -47,7 +48,7 @@ class AdminEditProductComponent extends Component
         $this->category_id = $product->category_id;
         $this->new_image = $product->new_image;
         $this->product_id = $product->id;
-        $this->images = $product->images;
+        $this->images = explode(',', $product->images);
     }
 
     public function generateSlug()
@@ -59,7 +60,7 @@ class AdminEditProductComponent extends Component
     {
         $this->validateOnly($fields, [
             'name' => 'required',
-            'slug' => 'required|unique:products',
+            'slug' => 'required',
             'short_description' => 'required',
             'description' => 'required',
             'regular_price' => 'required|numeric',
@@ -67,14 +68,40 @@ class AdminEditProductComponent extends Component
             'SKU' => 'required',
             'stock_status' => 'required',
             'quantity' => 'required|numeric',
-            'new_image' => 'required|mimes:png,jpeg,jpg',
             'category_id' => 'required',
             'product_id' => 'required',
         ]);
+
+        if ($this->new_image) {
+            $this->validateOnly($fields, [
+                'new_image' => 'required|mimes:png,jpeg,jpg',
+            ]);
+
+        }
     }
 
     public function updateProduct()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'short_description' => 'required',
+            'description' => 'required',
+            'regular_price' => 'required|numeric',
+            'sale_price' => 'numeric',
+            'SKU' => 'required',
+            'stock_status' => 'required',
+            'quantity' => 'required|numeric',
+            'category_id' => 'required',
+            'product_id' => 'required',
+        ]);
+
+        if ($this->new_image) {
+            $this->validate([
+                'new_image' => 'required|mimes:png,jpeg,jpg',
+            ]);
+        }
+
         $product = Product::find($this->product_id);
         $product->name = $this->name;
         $product->slug = $this->slug;
@@ -89,15 +116,39 @@ class AdminEditProductComponent extends Component
         $product->category_id = $this->category_id;
 
         if ($this->new_image) {
+            #remove previous image
+            unlink('assets/images/products' . '/' . $product->image);
+
             # set new img
             $imageName = $this->name . '.' . $this->new_image->extension();
             $this->new_image->storeAs('products', $imageName);
             $product->image = $imageName;
         }
+
+        // update gallery imgs
+        if ($this->new_images) {
+            if ($product->images) {
+                $images = explode(',', $product->images);
+
+                foreach ($images as $image) {
+                    if ($image) {
+                        unlink('assets/images/products' . '/' . $image);
+                    }
+                }
+            }
+
+            $imageName = '';
+            foreach ($this->new_images as $key => $image) {
+
+                $imageName = $this->name . $key . '.' . $image->extension();
+                $image->storeAs('products', $imageName);
+                $imageName = $imageName . ',' . $imageName;
+            }
+            $product->images = $imageName;
+        }
         $product->save();
 
         session()->flash('message', 'Product update successful!');
-
         redirect()->to('admin/products');
     }
 
