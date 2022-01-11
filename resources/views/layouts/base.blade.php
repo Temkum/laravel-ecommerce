@@ -22,7 +22,8 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/chosen.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/select2.min.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/nouislider.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 
@@ -263,8 +264,9 @@
   <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
   <script src="{{ asset('assets/js/functions.js') }}"></script>
   <script src="{{ asset('assets/js/select2.min.js') }}"></script>
-  <script src="{{ asset('assets/js/moment.min.js') }}"></script>
-  <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js">
+  </script>s
   <script src="{{ asset('assets/js/nouislider.min.js') }}"></script>
   {{-- tinymce --}}
   <script src="https://cdn.tiny.cloud/1/f8a094odr60v0sd68w9lovk814doy5oa20wosmmv6dfvurak/tinymce/5/tinymce.min.js"

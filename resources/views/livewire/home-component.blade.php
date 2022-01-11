@@ -1,4 +1,12 @@
 <main id="main">
+  <style>
+    .wrap-show-advance-info-box.has-countdown {
+      position: relative;
+      width: 100%;
+    }
+
+  </style>
+
   <div class="container">
 
     <!--MAIN SLIDE-->
@@ -36,11 +44,12 @@
     </div>
 
     <!-- ON SALE -->
-    @if ($onsale_products->count() > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+    @if ($onsale_products->count() > 0 && ($sale->status == 1 && $sale->sale_date > Carbon\Carbon::now()))
       <div class="wrap-show-advance-info-box style-1 has-countdown">
         <h3 class="title-box">On Sale</h3>
         <div class="wrap-countdown mercado-countdown"
-          data-expire="{{ Carbon\Carbon::parse($sale->sale_date)->format('Y/m/d h:m:s') }}"></div>
+          data-expire="{{ Carbon\Carbon::parse($sale->sale_date)->format('Y/m/d h:m:s') }}">
+        </div>
         <div class="wrap-products slide-carousel owl-carousel style-nav-1 equal-container " data-items="5"
           data-loop="false" data-nav="true" data-dots="false"
           data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"4"},"1200":{"items":"5"}}'>
@@ -55,16 +64,16 @@
                 <div class="group-flash">
                   <span class="flash-item sale-label">sale</span>
                 </div>
-                <div class="product-info">
-                  <a href="{{ route('product.details', ['slug' => $onsale_product->slug]) }}"
-                    class="product-name"><span>{{ $onsale_product->name }}</span>
-                  </a>
-                  <div class="wrap-price"><ins>
-                      <p class="product-price">${{ $onsale_product->sale_price }}</p>
-                    </ins> <del>
-                      <p class="product-price">${{ $onsale_product->regular_price }}</p>
-                    </del>
-                  </div>
+              </div>
+              <div class="product-info">
+                <a href="{{ route('product.details', ['slug' => $onsale_product->slug]) }}"
+                  class="product-name"><span>{{ $onsale_product->name }}</span>
+                </a>
+                <div class="wrap-price"><ins>
+                    <p class="product-price">${{ $onsale_product->sale_price }}</p>
+                  </ins> <del>
+                    <p class="product-price">${{ $onsale_product->regular_price }}</p>
+                  </del>
                 </div>
               </div>
             </div>
@@ -72,6 +81,7 @@
         </div>
       </div>
     @endif
+
 
     <!-- LATEST PRODUCTS -->
     <div class="wrap-show-advance-info-box style-1">
@@ -157,7 +167,8 @@
                       <div class="product-info">
                         <a href="{{ route('product.details', ['slug' => $c_product->slug]) }}"
                           class="product-name"><span>{{ $c_product->name }}</span></a>
-                        <div class="wrap-price"><span class="product-price">${{ $c_product->regular_price }}</span>
+                        <div class="wrap-price"><span
+                            class="product-price">${{ $c_product->regular_price }}</span>
                         </div>
                       </div>
                     </div>

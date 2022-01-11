@@ -26,23 +26,23 @@
       <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
         <div class="wrap-product-detail">
           <div class="detail-media">
-              {{-- PRODUCT GALLERY --}}
+            {{-- PRODUCT GALLERY --}}
             <div class="product-gallery" wire:ignore>
               <ul class="slides">
                 <li data-thumb="{{ asset('assets/images/products') }}/{{ $product->image }}">
                   <img src="{{ asset('assets/images/products') }}/{{ $product->image }}"
-                       alt="{{ $product->name }}" />
+                    alt="{{ $product->name }}" />
                 </li>
                 @php
-                    $images=explode(',', $product->images);
+                  $images = explode(',', $product->images);
                 @endphp
                 @foreach ($images as $image)
-                    @if ($image)
-                        <li data-thumb="{{ asset('assets/images/products') }}/{{ $image }}">
-                            <img src="{{ asset('assets/images/products') }}/{{ $image }}"
-                            alt="{{ $product->name }}" />
-                        </li>
-                @endif
+                  @if ($image)
+                    <li data-thumb="{{ asset('assets/images/products') }}/{{ $image }}">
+                      <img src="{{ asset('assets/images/products') }}/{{ $image }}"
+                        alt="{{ $product->name }}" />
+                    </li>
+                  @endif
                 @endforeach
               </ul>
             </div>
@@ -59,13 +59,13 @@
               @endforeach
               @for ($i = 1; $i <= 5; $i++)
                 @if ($i <= $avg_rating)
-                <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
                 @else
-                <i class="fa fa-star color-gray" aria-hidden="true"></i>
+                  <i class="fa fa-star color-gray" aria-hidden="true"></i>
                 @endif
-                @endfor
-                  <a href="#" class="count-review">({{ $product->orderItems->where('rev_status', 1)->count() }}
-                    review)</a>
+              @endfor
+              <a href="#" class="count-review">({{ $product->orderItems->where('rev_status', 1)->count() }}
+                review)</a>
             </div>
             <h2 class="product-name">{{ $product->name }}</h2>
             <div class="short-desc">
@@ -97,11 +97,11 @@
             <div class="wrap-butons">
               @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
                 <a href="#" class="btn add-to-cart"
-                   wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}',{{ $product->sale_price }})">Add
+                  wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}',{{ $product->sale_price }})">Add
                   to Cart</a>
               @else
                 <a href="#" class="btn add-to-cart"
-                   wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}',{{ $product->regular_price }})">Add
+                  wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}',{{ $product->regular_price }})">Add
                   to Cart</a>
               @endif
               <div class="wrap-btn">
@@ -176,20 +176,20 @@
                     <ol class="commentlist">
                       @foreach ($product->orderItems->where('rev_status', 1) as $orderItem)
                         <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1"
-                            id="li-comment-20">
+                          id="li-comment-20">
                           <div id="comment-20" class="comment_container">
                             <img alt="" src="{{ asset('assets/images/author-avata.jpg') }}" height="80" width="80">
                             <div class="comment-text">
                               <div class="star-rating">
                                 <span class="width-{{ $orderItem->review->rating * 20 }}-percent">Rated <strong
-                                          class="rating">{{ $orderItem->review->rating }}</strong> out of 5</span>
+                                    class="rating">{{ $orderItem->review->rating }}</strong> out of 5</span>
                               </div>
                               <p class="meta">
                                 <strong
-                                        class="woocommerce-review__author">{{ $orderItem->order->user->name }}</strong>
+                                  class="woocommerce-review__author">{{ $orderItem->order->user->name }}</strong>
                                 <span class="woocommerce-review__dash">–</span>
                                 <time class="woocommerce-review__published-date"
-                                      datetime="2008-02-14 20:00">{{ Carbon\Carbon::parse($orderItem->review->created_at)->format('d F Y g:i A') }}</time>
+                                  datetime="2008-02-14 20:00">{{ Carbon\Carbon::parse($orderItem->review->created_at)->format('d F Y g:i A') }}</time>
                               </p>
                               <div class="description">
                                 <p>{{ $orderItem->review->comment }}</p>
@@ -259,16 +259,17 @@
                   <div class="product product-widget-style">
                     <div class="thumbnnail">
                       <a href="{{ route('product.details', ['slug' => $pop_product->slug]) }}"
-                         title="{{ $pop_product->name }}">
+                        title="{{ $pop_product->name }}">
                         <figure><img src="{{ asset('assets/images/products') }}/{{ $pop_product->image }}"
-                               alt="{{ $pop_product->name }}">
+                            alt="{{ $pop_product->name }}">
                         </figure>
                       </a>
                     </div>
                     <div class="product-info">
                       <a href="{{ route('product.details', ['slug' => $pop_product->slug]) }}"
-                         class="product-name"><span>{{ $pop_product->name }}</span></a>
-                      <div class="wrap-price"><span class="product-price">${{ $pop_product->regular_price }}</span>
+                        class="product-name"><span>{{ $pop_product->name }}</span></a>
+                      <div class="wrap-price"><span
+                          class="product-price">${{ $pop_product->regular_price }}</span>
                       </div>
                     </div>
                   </div>
@@ -285,15 +286,15 @@
           <h3 class="title-box">Related Products</h3>
           <div class="wrap-products">
             <div class="products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5"
-                 data-loop="false" data-nav="true" data-dots="false"
-                 data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"5"}}'>
+              data-loop="false" data-nav="true" data-dots="false"
+              data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"5"}}'>
               @foreach ($related_products as $rel_product)
                 <div class="product product-style-2 equal-elem ">
                   <div class="product-thumnail">
                     <a href="{{ route('product.details', ['slug' => $rel_product->slug]) }}"
-                       title="{{ $rel_product->name }}">
+                      title="{{ $rel_product->name }}">
                       <figure><img src="{{ asset('assets/images/products') }}/{{ $rel_product->image }}"
-                             width="214" height="214" alt="{{ $rel_product->name }}"></figure>
+                          width="214" height="214" alt="{{ $rel_product->name }}"></figure>
                     </a>
                     <div class="group-flash">
                       <span class="flash-item new-label">new</span>
@@ -304,7 +305,8 @@
                   </div>
                   <div class="product-info">
                     <a href="#" class="product-name"><span>{{ $rel_product->name }}</span></a>
-                    <div class="wrap-price"><span class="product-price">${{ $rel_product->regular_price }}</span>
+                    <div class="wrap-price"><span
+                        class="product-price">${{ $rel_product->regular_price }}</span>
                     </div>
                   </div>
                 </div>
