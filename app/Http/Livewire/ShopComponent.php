@@ -4,9 +4,9 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Product;
+use Cart;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Cart;
 
 class ShopComponent extends Component
 {
