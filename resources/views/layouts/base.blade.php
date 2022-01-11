@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home</title>
+  <title>Laravel eCommerce</title>
   <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon1.ico">
   <link
     href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext"
@@ -26,6 +26,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/nouislider.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
 
   @livewireStyles
 </head>

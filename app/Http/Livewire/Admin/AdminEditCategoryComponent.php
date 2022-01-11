@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Admin;
 
-use Livewire\Component;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use Livewire\Component;
 
 class AdminEditCategoryComponent extends Component
 {
@@ -49,6 +49,7 @@ class AdminEditCategoryComponent extends Component
         $category->save();
 
         session()->flash('message', 'Category updated successfully!');
+        redirect()->to('admin/categories');
     }
 
     public function render()

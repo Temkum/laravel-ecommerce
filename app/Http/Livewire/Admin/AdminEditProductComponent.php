@@ -3,10 +3,9 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
-use Carbon\Carbon;
 use App\Models\Product;
-use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class AdminEditProductComponent extends Component
@@ -73,21 +72,6 @@ class AdminEditProductComponent extends Component
 
     public function updateProduct()
     {
-        $this->validate([
-            'name' => 'required',
-            'slug' => 'required|unique:products',
-            'short_description' => 'required',
-            'description' => 'required',
-            'regular_price' => 'required|numeric',
-            'sale_price' => 'numeric',
-            'SKU' => 'required',
-            'stock_status' => 'required',
-            'quantity' => 'required|numeric',
-            'new_image' => 'required|mimes:png,jpeg,jpg',
-            'category_id' => 'required',
-            'product_id' => 'required',
-        ]);
-
         $product = Product::find($this->product_id);
         $product->name = $this->name;
         $product->slug = $this->slug;
@@ -98,18 +82,20 @@ class AdminEditProductComponent extends Component
         $product->SKU = $this->SKU;
         $product->stock_status = $this->stock_status;
         $product->featured = $this->featured;
-        $product->qty = $this->qty;
+        $product->quantity = $this->quantity;
         $product->category_id = $this->category_id;
 
         if ($this->new_image) {
             # set new img
-            $imageName = Carbon::now()->timestamp . '.' . $this->new_image->extension();
+            $imageName = $this->name . '.' . $this->new_image->extension();
             $this->new_image->storeAs('products', $imageName);
             $product->image = $imageName;
         }
         $product->save();
 
         session()->flash('message', 'Product update successful!');
+
+        redirect()->to('admin/products');
     }
 
     public function render()

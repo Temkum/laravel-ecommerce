@@ -23,4 +23,4 @@ Use `@livewireStyles` to activate styles and `@livewireScripts`
     -   add the class name of the file
     -   add the route
 
-## 
+## Implement admin settings

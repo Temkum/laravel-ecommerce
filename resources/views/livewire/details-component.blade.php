@@ -105,8 +105,8 @@
                   to Cart</a>
               @endif
               <div class="wrap-btn">
-                <a href="#" class="btn btn-compare">Add Compare</a>
-                <a href="#" class="btn btn-wishlist">Add Wishlist</a>
+                <a href="#" class="btn btn-compare">Compare</a>
+                <a href="#" class="btn btn-wishlist">Add To Wishlist</a>
               </div>
             </div>
           </div>
