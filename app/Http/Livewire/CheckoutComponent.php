@@ -2,14 +2,16 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\OrderMail;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Shipping;
 use App\Models\Transaction;
-use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
 use Cart;
 use Exception;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Livewire\Component;
 use Stripe;
 
 class CheckoutComponent extends Component
@@ -191,7 +193,7 @@ class CheckoutComponent extends Component
                         'exp_month' => $this->exp_month,
                         'exp_year' => $this->exp_year,
                         'cvc' => $this->cvc,
-                    ]
+                    ],
                 ]);
 
                 if (!isset($token['id'])) {
@@ -207,7 +209,7 @@ class CheckoutComponent extends Component
                             'postal_code' => $this->zipcode,
                             'city' => $this->city,
                             'state' => $this->state,
-                            'country' => $this->country
+                            'country' => $this->country,
                         ],
                         'shipping' => [
                             'name' => $this->firstname . ' ' . $this->lastname,
@@ -216,17 +218,17 @@ class CheckoutComponent extends Component
                                 'postal_code' => $this->zipcode,
                                 'city' => $this->city,
                                 'state' => $this->state,
-                                'country' => $this->country
+                                'country' => $this->country,
                             ],
                         ],
-                        'source' => $token['id']
+                        'source' => $token['id'],
                     ]);
 
                     $charge = $stripe->charges()->create([
                         'customer' => $customer['id'],
                         'currency' => 'USD',
                         'amount' => session()->get('checkout')['total'],
-                        'description' => 'Payment for order No ' . $order->id
+                        'description' => 'Payment for order No ' . $order->id,
                     ]);
 
                     if ($charge['status'] == 'succeeded') {
@@ -242,6 +244,7 @@ class CheckoutComponent extends Component
                 $this->thankyou = 0;
             }
         }
+        $this->sendOrderConfirmation($order);
     }
 
     public function resetCart()
@@ -260,6 +263,11 @@ class CheckoutComponent extends Component
         $transaction->mode = $this->paymentmode;
         $transaction->status = $status;
         $transaction->save();
+    }
+
+    public function sendOrderConfirmation($order)
+    {
+        Mail::to($order->email)->send(new OrderMail($order));
     }
 
     public function verifyCheckout()

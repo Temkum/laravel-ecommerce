@@ -24,3 +24,7 @@ Use `@livewireStyles` to activate styles and `@livewireScripts`
     -   add the route
 
 ## Implement admin settings
+
+## Send order email
+
+-   make component `php artisan make:mail OrderMail`
