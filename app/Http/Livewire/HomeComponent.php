@@ -7,6 +7,8 @@ use App\Models\HomeCategory;
 use App\Models\HomeSlider;
 use App\Models\Product;
 use App\Models\Sale;
+use Cart;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class HomeComponent extends Component
@@ -29,6 +31,11 @@ class HomeComponent extends Component
 
         // sale timer
         $sale = Sale::find(1);
+
+        // check if user is authenticated
+        if (Auth::check()) {
+            Cart::instance('cart')->restore(Auth::user()->email);
+        }
 
         $data = ['sliders' => $sliders,
             'latest_products' => $latest_products,

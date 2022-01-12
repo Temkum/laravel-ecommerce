@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use Cart;
-use Carbon\Carbon;
 use App\Models\Coupon;
-use Livewire\Component;
+use Carbon\Carbon;
+use Cart;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class CartComponent extends Component
 {
@@ -168,6 +168,11 @@ class CartComponent extends Component
         }
 
         $this->setCheckoutAmount();
+
+        // check if user is authenticated
+        if (Auth::check()) {
+            Cart::instance('cart')->store(Auth::user()->email);
+        }
 
         return view('livewire.cart-component')->layout('layouts.base');
     }

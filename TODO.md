@@ -28,3 +28,8 @@ Use `@livewireStyles` to activate styles and `@livewireScripts`
 ## Send order email
 
 -   make component `php artisan make:mail OrderMail`
+
+## Add shopping cart using database
+
+-   create migration for shopping cart `php artisan vendor:publish --provider="Gloudemans\Shoppingcart\ShoppingcartServiceProvider" --tag="migrations"`
+-   then migrate
