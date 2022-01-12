@@ -13,6 +13,14 @@
       border: 1px solid #e6e6e6;
     }
 
+    .pm {
+      font-size: 22px;
+      margin-bottom: 20px;
+      padding-left: 38px;
+      color: green;
+      display: none;
+    }
+
   </style>
 
   <div class="container">
@@ -24,7 +32,7 @@
     </div>
 
     <div class=" main-content-area">
-      <form wire:submit.prevent="placeOrder">
+      <form wire:submit.prevent="placeOrder" onsubmit="$('#processing').show();">
         <div class="row">
           <div class="col-md-12">
             <div class="wrap-address-billing">
@@ -263,6 +271,15 @@
                   class="grand-total-price">${{ Session::get('checkout')['total'] }}</span>
               </p>
             @endif
+
+            {{-- processing message --}}
+            @if ($errors->isEmpty())
+              <div class="pm" id="processing" wire:ignore>
+                <i class="fa fa-spinner fa-pulse fa-fw"></i>
+                <span>Processing...</span>
+              </div>
+            @endif
+
             <button type="submit" class="btn btn-medium">Place order now</button>
           </div>
           <div class="summary-item shipping-method">
