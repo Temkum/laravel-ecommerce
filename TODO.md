@@ -33,3 +33,5 @@ Use `@livewireStyles` to activate styles and `@livewireScripts`
 
 -   create migration for shopping cart `php artisan vendor:publish --provider="Gloudemans\Shoppingcart\ShoppingcartServiceProvider" --tag="migrations"`
 -   then migrate
+
+## persist wishlist from database

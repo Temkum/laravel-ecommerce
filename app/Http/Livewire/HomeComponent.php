@@ -35,6 +35,7 @@ class HomeComponent extends Component
         // check if user is authenticated
         if (Auth::check()) {
             Cart::instance('cart')->restore(Auth::user()->email);
+            Cart::instance('wishlist')->restore(Auth::user()->email);
         }
 
         $data = ['sliders' => $sliders,

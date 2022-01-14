@@ -75,6 +75,7 @@ class ShopComponent extends Component
         // check if user is authenticated
         if (Auth::check()) {
             Cart::instance('cart')->store(Auth::user()->email);
+            Cart::instance('wishlist')->restore(Auth::user()->email);
         }
 
         return view('livewire.shop-component', ['products' => $products, 'categories' => $categories])->layout('layouts.base');
