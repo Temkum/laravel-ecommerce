@@ -21,6 +21,10 @@
       margin-left: 15px;
     }
 
+    .subcat {
+      list-style: none;
+    }
+
   </style>
 
   <div class="container" style="padding:30px 0;">
@@ -48,6 +52,7 @@
                   <th>Id</th>
                   <th>Category Name</th>
                   <th>Slug</th>
+                  <th>Sub Category</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -57,6 +62,13 @@
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->name }}</td>
                     <td>{{ $category->slug }}</td>
+                    <td>
+                      <ul class="subcat">
+                        @foreach ($category->subCategories as $sub_category)
+                          <li><i class="fa fa-caret-right"></i> {{ $sub_category->name }}</li>
+                        @endforeach
+                      </ul>
+                    </td>
                     <td>
                       <a href="{{ route('admin.edit-category', ['category_slug' => $category->slug]) }}"> <i
                           class="fa fa-edit fa-2x"></i></a>
