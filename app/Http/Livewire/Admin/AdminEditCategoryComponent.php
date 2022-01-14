@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
+use App\Models\Subcategory;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
@@ -12,14 +13,24 @@ class AdminEditCategoryComponent extends Component
     public $category_id;
     public $name;
     public $slug;
+    public $subcategory_id;
+    public $subcategory_slug;
 
-    public function mount($category_slug)
+    public function mount($category_slug, $subcategory_slug = null)
     {
-        $this->category_slug = $category_slug;
-        $category = Category::where('slug', $category_slug)->first();
-        $this->category_id = $category->id;
-        $this->name = $category->name;
-        $this->slug = $category->slug;
+        if ($subcategory_slug) {
+            $this->subcategory_slug = $subcategory_slug;
+            $subcategory = Subcategory::where('slug', $subcategory_slug)->first();
+            $this->category_id = $subcategory->category_id;
+            $this->name = $subcategory->name;
+            $this->slug = $subcategory->slug;
+        } else {
+            $this->category_slug = $category_slug;
+            $category = Category::where('slug', $category_slug)->first();
+            $this->category_id = $category->id;
+            $this->name = $category->name;
+            $this->slug = $category->slug;
+        }
     }
 
     public function generateSlug()
@@ -43,10 +54,18 @@ class AdminEditCategoryComponent extends Component
             'slug' => 'required|unique:categories',
         ]);
 
-        $category = Category::find($this->category_id);
-        $category->name = $this->name;
-        $category->slug = $this->slug;
-        $category->save();
+        if ($this->subcategory_id) {
+            $sub_category = Subcategory::find($this->subcategory_id);
+            $sub_category->name = $this->name;
+            $sub_category->slug = $this->slug;
+            $sub_category->category_id = $this->category_id;
+            $sub_category->save();
+        } else {
+            $category = Category::find($this->category_id);
+            $category->name = $this->name;
+            $category->slug = $this->slug;
+            $category->save();
+        }
 
         session()->flash('message', 'Category updated successfully!');
         redirect()->to('admin/categories');
@@ -54,6 +73,8 @@ class AdminEditCategoryComponent extends Component
 
     public function render()
     {
-        return view('livewire.admin.admin-edit-category-component')->layout('layouts.base');
+        $categories = Category::all();
+
+        return view('livewire.admin.admin-edit-category-component', ['categories' => $categories])->layout('layouts.base');
     }
 }

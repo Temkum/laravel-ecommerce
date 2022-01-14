@@ -64,8 +64,11 @@
                     <td>{{ $category->slug }}</td>
                     <td>
                       <ul class="subcat">
-                        @foreach ($category->subCategories as $sub_category)
-                          <li><i class="fa fa-caret-right"></i> {{ $sub_category->name }}</li>
+                        @foreach ($category->subCategories as $subcategory)
+                          <li><i class="fa fa-caret-right"></i> {{ $subcategory->name }} <a
+                              href="{{ route('admin.edit-category', ['category_slug' => $category->slug, 'subcategory_slug' => $subcategory->slug]) }}"><i
+                                class="fa fa-edit"></i></a>
+                          </li>
                         @endforeach
                       </ul>
                     </td>

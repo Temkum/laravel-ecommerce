@@ -50,9 +50,6 @@
                       <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                   </select>
-                  @error('slug')
-                    <p class="text-danger">{{ $message }}</p>
-                  @enderror
                 </div>
               </div>
 
