@@ -25,6 +25,14 @@
       list-style: none;
     }
 
+    .subcat li {
+      line-height: 35px;
+    }
+
+    .subcat li a {
+      margin: 1rem;
+    }
+
   </style>
 
   <div class="container" style="padding:30px 0;">
@@ -65,9 +73,15 @@
                     <td>
                       <ul class="subcat">
                         @foreach ($category->subCategories as $subcategory)
-                          <li><i class="fa fa-caret-right"></i> {{ $subcategory->name }} <a
-                              href="{{ route('admin.edit-category', ['category_slug' => $category->slug, 'subcategory_slug' => $subcategory->slug]) }}"><i
-                                class="fa fa-edit"></i></a>
+                          <li><i class="fa fa-caret-right"></i> {{ $subcategory->name }}
+                            <a class="mr-2"
+                              href="{{ route('admin.edit-category', ['category_slug' => $category->slug, 'subcategory_slug' => $subcategory->slug]) }}">
+                              <i class="fa fa-edit"></i>
+                            </a>
+                            <a href="#" wire:click.prevent="deleteSubcatgory({{ $subcategory->id }})"
+                              onclick="confirm('Sure you want to delete this Subcategory?') || event.stopImmediatePropagation()">
+                              <i class="fa fa-trash text-danger"></i>
+                            </a>
                           </li>
                         @endforeach
                       </ul>
