@@ -105,11 +105,11 @@
                     }
                 );
             }
-            if ($("select:not(.except-chosen)").length > 0) {
+            /* if ($("select:not(.except-chosen)").length > 0) {
                 $("select:not(.except-chosen)").each(function () {
                     $(this).chosen();
                 });
-            }
+            } */
         },
 
         mercado_toggle_slide_menu: function () {

@@ -229,9 +229,6 @@
                   <a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
                 </li>
                 <li class="menu-item">
-                  <a href="about-us.html" class="link-term mercado-item-title">About Us</a>
-                </li>
-                <li class="menu-item">
                   <a href="/shop" class="link-term mercado-item-title">Shop</a>
                 </li>
                 <li class="menu-item">
@@ -242,6 +239,9 @@
                 </li>
                 <li class="menu-item">
                   <a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
+                </li>
+                <li class="menu-item">
+                  <a href="about-us.html" class="link-term mercado-item-title">About Us</a>
                 </li>
               </ul>
             </div>
@@ -259,7 +259,7 @@
   <script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
   <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets/js/jquery.flexslider.js') }}"></script>
-  {{-- <script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script> --}}
+  <script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script>
   <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
   <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
   <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
