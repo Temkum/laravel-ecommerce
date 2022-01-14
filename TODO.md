@@ -35,3 +35,7 @@ Use `@livewireStyles` to activate styles and `@livewireScripts`
 -   then migrate
 
 ## persist wishlist from database
+
+## Create sub categories
+
+-   create model and migration `php artisan make:model Subcategory`
