@@ -39,3 +39,7 @@ Use `@livewireStyles` to activate styles and `@livewireScripts`
 ## Create sub categories
 
 -   create model and migration `php artisan make:model Subcategory`
+
+## show products by subcategory
+
+-   add a migration file `php artisan make:migration add_subcategory_id_to_products_table --table=products`

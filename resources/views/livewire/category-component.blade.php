@@ -107,14 +107,27 @@
           <h2 class="widget-title">All Categories</h2>
           <div class="widget-content">
             <ul class="list-category">
-
               @foreach ($categories as $category)
-                <li class="category-item">
+                <li class="category-item {{ count($category->subCategories) > 0 ? 'has-child-cate' : '' }}">
                   <a href="{{ route('product.category', ['category_slug' => $category->slug]) }}"
-                    class="cate-link">{{ $category->name }}a</a>
+                    class="cate-link">{{ $category->name }}</a>
+                  @if (count($category->subcategories) > 0)
+                    <span class="toggle-control" data-toggle="tooltip" data-placement="top"
+                      title="View subcategories">+</span>
+                    <ul class="sub-cate">
+                      @foreach ($category->subCategories as $subcategory)
+                        <li class="cat-item">
+                          <a href="{{ route('product.category', ['category_slug' => $category->slug, 'subcategory_slug' => $subcategory->slug]) }}"
+                            class="cat-link">
+                            <i class="fa fa-caret-right"></i>
+                            {{ $subcategory->name }}
+                          </a>
+                        </li>
+                      @endforeach
+                    </ul>
+                  @endif
                 </li>
               @endforeach
-
             </ul>
           </div>
         </div><!-- Categories widget-->
@@ -195,7 +208,8 @@
                     </a>
                   </div>
                   <div class="product-info">
-                    <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
+                    <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
+                        Speaker...</span></a>
                     <div class="wrap-price"><span class="product-price">$168.00</span></div>
                   </div>
                 </div>
@@ -209,7 +223,8 @@
                     </a>
                   </div>
                   <div class="product-info">
-                    <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
+                    <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
+                        Speaker...</span></a>
                     <div class="wrap-price"><span class="product-price">$168.00</span></div>
                   </div>
                 </div>
@@ -223,7 +238,8 @@
                     </a>
                   </div>
                   <div class="product-info">
-                    <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
+                    <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
+                        Speaker...</span></a>
                     <div class="wrap-price"><span class="product-price">$168.00</span></div>
                   </div>
                 </div>
