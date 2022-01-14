@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Subcategory;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -30,6 +31,8 @@ class AdminEditProductComponent extends Component
     public $images;
     public $new_images;
 
+    public $subcat_id;
+
     public function mount($product_slug)
     {
         $product = Product::where('slug', $product_slug)->first();
@@ -49,6 +52,7 @@ class AdminEditProductComponent extends Component
         $this->new_image = $product->new_image;
         $this->product_id = $product->id;
         $this->images = explode(',', $product->images);
+        $this->subcat_id = $product->subcategory_id;
     }
 
     public function generateSlug()
@@ -146,19 +150,31 @@ class AdminEditProductComponent extends Component
             }
             $product->images = $imageName;
         }
+
+        // update subcategories
+        if ($this->subcat_id) {
+            $product->subcategory_id = $this->subcat_id;
+        }
+
         $product->save();
 
         session()->flash('message', 'Product update successful!');
         redirect()->to('admin/products');
     }
 
+    public function changeSubcategory()
+    {
+        $this->subcategory_id = 0;
+    }
+
     public function render()
     {
         $categories = Category::all();
-        $images = Product::all();
+        $subcategories = Subcategory::where('category_id', $this->category_id)->get();
 
         $data = [
             'categories' => $categories,
+            'subcategories' => $subcategories,
         ];
 
         return view('livewire.admin.admin-edit-product-component', $data)->layout('layouts.base');

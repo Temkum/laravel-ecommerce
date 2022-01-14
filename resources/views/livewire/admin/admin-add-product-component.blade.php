@@ -176,6 +176,22 @@
               </div>
 
               <div class="form-group">
+                <label for="" class="col-md-4 control-label">Subcategory</label>
+                <div class="col-md-4">
+                  <select name="" id="" class="form-control" wire:model="subcategory_id"
+                    wire:change="changeSubcategory">
+                    <option value="0">Select Subcategory</option>
+                    @foreach ($subcategories as $subcat)
+                      <option value="{{ $subcat->id }}">{{ $subcat->name }}</option>
+                    @endforeach
+                  </select>
+                  @error('subcategory_id')
+                    <p class="text-danger">{{ $message }}</p>
+                  @enderror
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label for="" class="col-md-4 control-label"></label>
                 <div class="col-md-4">
                   <button type="submit" class="btn btn-primary">Submit</button>

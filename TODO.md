@@ -43,3 +43,5 @@ Use `@livewireStyles` to activate styles and `@livewireScripts`
 ## show products by subcategory
 
 -   add a migration file `php artisan make:migration add_subcategory_id_to_products_table --table=products`
+
+## add subcategory on product add and edit page
