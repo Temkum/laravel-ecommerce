@@ -16,6 +16,10 @@
       font-size: 2.5rem;
     }
 
+    .pro-heading {
+      line-height: 5rem;
+    }
+
   </style>
 
   <div class="container mt">
@@ -23,14 +27,18 @@
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading heading-1">
-            <div class="row">
-              <div class="col-md-6 text-uppercase text-lg">
+            <div class="row pro-heading">
+              <div class="col-md-4 text-uppercase text-lg">
                 All products
               </div>
-              <div class="col-md-6 add-new">
+              <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="Search item" wire:model="search_term">
+              </div>
+              <div class="col-md-4 add-new">
                 <a href="{{ route('admin.add-product') }}" class="btn btn-primary pull-right">Add New Product</a>
               </div>
             </div>
+
           </div>
 
           <div class="panel-body">
