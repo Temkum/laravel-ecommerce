@@ -106,6 +106,9 @@
                             <a title="Products" href="{{ route('admin.products') }}"> Products</a>
                           </li>
                           <li class="menu-item">
+                            <a title="Attributes" href="{{ route('admin.attributes') }}">Product Attributes</a>
+                          </li>
+                          <li class="menu-item">
                             <a title="Home Slider" href="{{ route('admin.homeslider') }}">Home Slider</a>
                           </li>
                           <li class="menu-item">

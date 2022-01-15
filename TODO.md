@@ -53,3 +53,8 @@ Use `@livewireStyles` to activate styles and `@livewireScripts`
 ## update user profile
 
 -   make component `php artisan make:livewire user/UserEditProfile`
+
+## product attributes
+
+-   create model and migration `php artisan make:model ProductAttribute -m`
+-   create component
