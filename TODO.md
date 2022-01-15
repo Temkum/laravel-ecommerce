@@ -49,3 +49,7 @@ Use `@livewireStyles` to activate styles and `@livewireScripts`
 ## create user profile
 
 -   create model and migration
+
+## update user profile
+
+-   make component `php artisan make:livewire user/UserEditProfile`
