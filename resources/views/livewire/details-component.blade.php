@@ -170,6 +170,7 @@
                     }
 
                   </style>
+
                   <div id="comments">
                     <h2 class="woocommerce-Reviews-title">
                       {{ $product->orderitems->where('rev_status', 1)->count() }}
@@ -179,7 +180,9 @@
                         <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1"
                           id="li-comment-20">
                           <div id="comment-20" class="comment_container">
-                            <img alt="" src="{{ asset('assets/images/author-avata.jpg') }}" height="80" width="80">
+                            <img alt="{{ $orderItem->order->user->name }}"
+                              src="{{ asset('assets/images/profile') }}/{{ $orderItem->order->user->profile->image }}"
+                              height="80" width="80">
                             <div class="comment-text">
                               <div class="star-rating">
                                 <span class="width-{{ $orderItem->review->rating * 20 }}-percent">Rated <strong
