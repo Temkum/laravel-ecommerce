@@ -9,6 +9,11 @@
       margin-top: 1.5%;
     }
 
+    .c-attribute {
+      vertical-align: middle;
+      width: 180px;
+    }
+
   </style>
 
   <div class="container">
@@ -42,6 +47,13 @@
                     <a class="link-to-product"
                       href="{{ route('product.details', ['slug' => $item->model->slug]) }}">{{ $item->model->name }}</a>
                   </div>
+                  {{-- attribute --}}
+                  @foreach ($item->options as $key => $value)
+                    <div class="c-attribute">
+                      <p><b>{{ $key }}:</b>{{ $value }}</p>
+                    </div>
+                  @endforeach
+
                   <div class="price-field produtc-price">
                     <p class="price">${{ $item->model->regular_price }}</p>
                   </div>
@@ -50,10 +62,12 @@
                     <div class="quantity-input">
                       <input type="text" name="product-quatity" value="{{ $item->qty }}" data-max="120"
                         pattern="[0-9]*">
-                      <a class="btn btn-increase" href="#" wire:click.prevent="increaseQty('{{ $item->rowId }}')"></a>
+                      <a class="btn btn-increase" href="#"
+                        wire:click.prevent="increaseQty('{{ $item->rowId }}')"></a>
                       <a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQty('{{ $item->rowId }}')"></a>
                     </div>
-                    <p class="text-center"><a href="#" wire:click.prevent="saveForLater('{{ $item->rowId }}')">Save
+                    <p class="text-center"><a href="#"
+                        wire:click.prevent="saveForLater('{{ $item->rowId }}')">Save
                         for
                         later</a></p>
                   </div>

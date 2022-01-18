@@ -11,6 +11,7 @@ class DetailsComponent extends Component
 {
     public $slug;
     public $qty;
+    public $cart_att = [];
 
     public function mount($slug)
     {
@@ -20,7 +21,7 @@ class DetailsComponent extends Component
 
     public function store($product_id, $product_name, $product_price)
     {
-        Cart::instance('cart')->add($product_id, $product_name, $this->qty, $product_price)->associate('App\Models\Product');
+        Cart::instance('cart')->add($product_id, $product_name, $this->qty, $product_price, $this->cart_att)->associate('App\Models\Product');
 
         session()->flash('success_msg', 'Item added to cart successfully!');
 

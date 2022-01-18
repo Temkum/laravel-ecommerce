@@ -96,9 +96,10 @@
                     <p>{{ $a_val->productAttribute->name }}</p>
                   </div>
                   <div class="col-xs-10">
-                    <select name="" id="" class="form-control mt-1">
+                    <select name="" id="" class="form-control mt-1"
+                      wire:model="cart_att.{{ $a_val->productAttribute->name }}">
                       @foreach ($a_val->productAttribute->attributeValues->where('product_id', $product->id) as $prod_att_val)
-                        <option value="{{ $prod_att_val->id }}">{{ $prod_att_val }}</option>
+                        <option value="{{ $prod_att_val->value }}">{{ $prod_att_val }}</option>
                       @endforeach
                     </select>
                   </div>
