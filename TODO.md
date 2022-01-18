@@ -62,3 +62,5 @@ Use `@livewireStyles` to activate styles and `@livewireScripts`
 ## Add attribute on product
 
 -   create model & migration `php artisan make:model AttributeValue -m`
+
+### edit product attributes
