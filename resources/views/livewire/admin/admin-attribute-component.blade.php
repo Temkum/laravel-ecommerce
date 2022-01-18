@@ -42,7 +42,7 @@
           <div class="panel-heading">
             <div class="row">
               <div class="col-md-6 text-uppercase text-lg">
-                All Categories
+                ATTRIBUTES
               </div>
               <div class="col-md-6">
                 <a href="{{ route('admin.add-attribute') }}" class="btn btn-primary">Add New Attribute</a>

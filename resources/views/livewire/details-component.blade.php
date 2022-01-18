@@ -12,6 +12,10 @@
       color: #e6e6e6 !important;
     }
 
+    .mt-1 {
+      margin-top: 1rem;
+    }
+
   </style>
 
   <div class="container">
@@ -85,7 +89,24 @@
             <div class="stock-info in-stock">
               <p class="availability">Availability: <b>{{ $product->stock_status }}</b></p>
             </div>
-            <div class="quantity">
+            <div>
+              @foreach ($product->attributeValues->unique('prod_attribute_id') as $a_val)
+                <div class="row mt-1">
+                  <div class="col-xs-2">
+                    <p>{{ $a_val->productAttribute->name }}</p>
+                  </div>
+                  <div class="col-xs-10">
+                    <select name="" id="" class="form-control mt-1">
+                      @foreach ($a_val->productAttribute->attributeValues->where('product_id', $product->id) as $prod_att_val)
+                        <option value="{{ $prod_att_val->id }}">{{ $prod_att_val }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+              @endforeach
+            </div>
+
+            <div class="quantity mt-1">
               <span>Quantity:</span>
               <div class="quantity-input">
                 <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" wire:model="qty">
