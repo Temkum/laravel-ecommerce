@@ -85,6 +85,16 @@
                       <a class="link-to-product"
                         href="{{ route('product.details', ['slug' => $item->product->slug]) }}">{{ $item->product->name }}</a>
                     </div>
+
+                    @if ($item->options)
+                      <div class="quantity">
+                        @foreach (unserialize($item->options) as $key => $item)
+                          <p><b>{{ $key }}:{{ $value }}</b></p>
+                        @endforeach
+                        <h5>{{ $item->quantity }}</h5>
+                      </div>
+                    @endif
+
                     <div class="price-field produtc-price">
                       <p class="price">${{ $item->price }}</p>
                     </div>

@@ -64,3 +64,7 @@ Use `@livewireStyles` to activate styles and `@livewireScripts`
 -   create model & migration `php artisan make:model AttributeValue -m`
 
 ### edit product attributes
+
+### show & display product attributes with order
+
+-   create migration `php artisan make:migration add_options_to_order_items_table --table=order_items`

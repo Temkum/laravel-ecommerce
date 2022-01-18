@@ -77,7 +77,7 @@
 
           <div class="panel-body">
             <div class="wrap-iten-in-cart">
-              <h3 class="box-title">Order items</h3>
+              <h3 class="box-title">Ordered items</h3>
               <ul class="products-cart">
                 @foreach ($order->orderItems as $item)
                   <li class="pr-cart-item">
@@ -91,6 +91,16 @@
                       <a class="link-to-product"
                         href="{{ route('product.details', ['slug' => $item->product->slug]) }}">{{ $item->product->name }}</a>
                     </div>
+
+                    @if ($item->options)
+                      <div class="quantity">
+                        @foreach (unserialize($item->options) as $key => $item)
+                          <p><b>{{ $key }}:{{ $value }}</b></p>
+                        @endforeach
+                        <h5>{{ $item->quantity }}</h5>
+                      </div>
+                    @endif
+
                     <div class="price-field produtc-price">
                       <p class="price">${{ $item->price }}</p>
                     </div>
@@ -104,7 +114,8 @@
                     </div>
                     @if ($order->status == 'delivered' && $item->rev_status == false)
                       <div class="price-field sub-total">
-                        <p class="price"><a href="{{ route('user.review', ['order_item_id' => $item->id]) }}">Write
+                        <p class="price"><a
+                            href="{{ route('user.review', ['order_item_id' => $item->id]) }}">Write
                             Review</a></p>
                       </div>
                     @endif
