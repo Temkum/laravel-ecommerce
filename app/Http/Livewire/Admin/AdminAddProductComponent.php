@@ -125,7 +125,9 @@ class AdminAddProductComponent extends Component
         if ($this->subcategory_id) {
             $product->subcategory_id = $this->subcategory_id;
         }
+        $product->save();
 
+        // add attribute
         foreach ($this->attribute_values as $key => $attribute_value) {
             $att_values = explode(',', $attribute_value);
 
@@ -137,9 +139,9 @@ class AdminAddProductComponent extends Component
                 $att_val->save();
             }
         }
-        $product->save();
 
         session()->flash('message', 'Product created successfully!');
+        redirect()->to('admin/products');
     }
 
     public function changeSubcategory()
