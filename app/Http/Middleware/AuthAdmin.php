@@ -21,12 +21,6 @@ class AuthAdmin
             session(['user_type' => 'ADM']);
         } else if (Auth::user()->user_type === 'USR') {
             session(['user_type' => 'USR']);
-        }
-
-        if (session('user_type') === 'ADM') {
-            return $next($request);
-        } else if (Auth::user()->user_type === 'USR') {
-            session(['user_type' => 'USR']);
         } else {
             session()->flush();
             return redirect()->route('login');
