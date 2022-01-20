@@ -116,7 +116,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('/user/orders', UserOrders::class)->name('user.orders');
     Route::get('/user/orders/{order_id}', UserOrderDetails::class)->name('user.orderdetails');
-
     Route::get('/user/review/{order_item_id}', UserReview::class)->name('user.review');
 
     Route::get('/user/change-password', UserChangePassword::class)->name('user.changepassword');
