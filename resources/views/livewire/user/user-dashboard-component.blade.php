@@ -175,9 +175,18 @@
                     <td>{{ $order->mobile }}</td>
                     <td>{{ $order->email }}</td>
                     <td>{{ $order->zip_code }}</td>
-                    <td>{{ ucfirst($order->status) }}</td>
+                    {{-- <td>{{ ucfirst($order->status) }}</td> --}}
+                    <td>
+                      @if ($order->status == 'delivered')
+                        <span class="badge btn-success">Delivered</span>
+                      @elseif($order->status == 'cancelled')
+                        <span class="badge bg-primary">Cancelled</span>
+                      @else
+                        <span class="badge bg-secondary">Processing</span>
+                      @endif
+                    </td>
                     <td>{{ $order->created_at }}</td>
-                    <td><a href="{{ route('admin.orderdetails', ['order_id' => $order->id]) }}"
+                    <td><a href="{{ route('user.orderdetails', ['order_id' => $order->id]) }}"
                         class="btn btn-small btn-info"><i class="fa fa-eye"></i></a></td>
                   </tr>
                 @endforeach
